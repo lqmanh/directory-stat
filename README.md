@@ -1,15 +1,36 @@
-directory-stat
-==============
+# directory-stat v0.1.0
+> Directory statistics
 
-Directory statistics
-
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat/blob/master/package.json)
 [![Version](https://img.shields.io/npm/v/directory-stat.svg)](https://npmjs.org/package/directory-stat)
 [![Downloads/week](https://img.shields.io/npm/dw/directory-stat.svg)](https://npmjs.org/package/directory-stat)
-[![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat/blob/master/package.json)
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 
-<!-- toc -->
-# Usage
-<!-- usage -->
-# Commands
-<!-- commands -->
+## Installation
+### With `npm`
+```
+$ npm install -g directory-stat
+```
+### With `yarn`
+```
+$ yarn global add directory-stat
+```
+
+## Usage
+```
+$ directory-stat --help
+Directory statistics
+
+USAGE
+  $ directory-stat DIR
+
+ARGUMENTS
+  DIR  directory
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --version  show CLI version
+
+DESCRIPTION
+  Write directory statistics to .dirstat file
+```

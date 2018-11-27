@@ -1,7 +1,7 @@
 {
   "name": "directory-stat",
   "description": "Directory statistics",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Luong Quang Manh @lqmanh",
   "bin": {
     "directory-stat": "./bin/run"
@@ -22,7 +22,8 @@
   ],
   "homepage": "https://github.com/lqmanh/directory-stat",
   "keywords": [
-    "oclif"
+    "directory",
+    "stat"
   ],
   "license": "MIT",
   "main": "src/index.js",
