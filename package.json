@@ -1,0 +1,36 @@
+{
+  "name": "directory-stat",
+  "description": "Directory statistics",
+  "version": "0.0.1",
+  "author": "Luong Quang Manh @lqmanh",
+  "bin": {
+    "directory-stat": "./bin/run"
+  },
+  "bugs": "https://github.com/lqmanh/directory-stat/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.6",
+    "@oclif/config": "^1.9.0",
+    "@oclif/plugin-help": "^2.1.4"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/lqmanh/directory-stat",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "bin": "directory-stat"
+  },
+  "repository": "lqmanh/directory-stat",
+  "scripts": {
+    "test": "echo NO TESTS"
+  }
+}
