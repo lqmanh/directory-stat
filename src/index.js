@@ -1,24 +1,28 @@
 const { Command, flags } = require('@oclif/command')
 
+const StatWriter = require('./stat-writer')
 
-class DirectoryStatCommand extends Command {
+
+class DirectoryStatCmd extends Command {
   async run() {
-    const { flags } = this.parse(DirectoryStatCommand)
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from ./src/index.js`)
+    const { args } = this.parse(DirectoryStatCmd)
+    const statWriter = new StatWriter(args.dir)
+    statWriter.write()
   }
 }
 
-DirectoryStatCommand.description = `Describe the command here
-Extra documentation goes here
+DirectoryStatCmd.description = `Directory statistics
+Write directory statistics to .dirstat file
 `
 
-DirectoryStatCommand.flags = {
-  version: flags.version({char: 'v'}),
-  help: flags.help({char: 'h'}),
+DirectoryStatCmd.args = [
+  { name: 'dir', required: true, description: 'directory' },
+]
 
-  name: flags.string({char: 'n', description: 'name to print'}),
+DirectoryStatCmd.flags = {
+  version: flags.version({ char: 'v' }),
+  help: flags.help({ char: 'h' }),
 }
 
 
-module.exports = DirectoryStatCommand
+module.exports = DirectoryStatCmd
