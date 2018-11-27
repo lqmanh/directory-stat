@@ -29,7 +29,10 @@
   "oclif": {
     "bin": "directory-stat"
   },
-  "repository": "lqmanh/directory-stat",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lqmanh/directory-stat.git"
+  },
   "scripts": {
     "test": "echo NO TESTS"
   }
