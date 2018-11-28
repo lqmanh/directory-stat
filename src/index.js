@@ -7,7 +7,12 @@ class DirectoryStatCmd extends Command {
   async run() {
     const { args } = this.parse(DirectoryStatCmd)
     const statWriter = new StatWriter(args.dir)
-    statWriter.write()
+    try {
+      await statWriter.export()
+      this.log('Success')
+    } catch (err) {
+      this.error(err)
+    }
   }
 }
 
