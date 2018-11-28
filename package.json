@@ -1,7 +1,7 @@
 {
   "name": "directory-stat",
   "description": "Directory statistics",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Luong Quang Manh @lqmanh",
   "bin": {
     "directory-stat": "./bin/run"

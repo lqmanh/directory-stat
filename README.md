@@ -1,4 +1,4 @@
-# directory-stat v0.1.0
+# directory-stat v0.1.1
 > Directory statistics
 
 [![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat/blob/master/package.json)
