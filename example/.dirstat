@@ -1,0 +1,35 @@
+{
+  "name": "examples",
+  "children": [
+    {
+      "name": ".dirstat",
+      "timestamp": {
+        "atime": "2018-11-28T04:37:09.621Z",
+        "ctime": "2018-11-28T04:53:01.558Z",
+        "mtime": "2018-11-28T04:53:01.558Z",
+        "birthtime": "2018-11-28T04:53:01.558Z"
+      },
+      "type": "file"
+    },
+    {
+      "name": "dir1",
+      "timestamp": {
+        "atime": "2018-11-28T04:37:25.741Z",
+        "ctime": "2018-11-28T04:52:52.981Z",
+        "mtime": "2018-11-28T04:52:52.981Z",
+        "birthtime": "2018-11-28T04:52:52.981Z"
+      },
+      "type": "directory"
+    },
+    {
+      "name": "file1",
+      "timestamp": {
+        "atime": "2018-11-28T04:28:40.142Z",
+        "ctime": "2018-11-28T04:54:05.925Z",
+        "mtime": "2018-11-28T04:54:05.925Z",
+        "birthtime": "2018-11-28T04:54:05.925Z"
+      },
+      "type": "file"
+    }
+  ]
+}
