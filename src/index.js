@@ -5,8 +5,8 @@ const StatWriter = require('./stat-writer')
 
 class DirectoryStatCmd extends Command {
   async run() {
-    const { args } = this.parse(DirectoryStatCmd)
-    const statWriter = new StatWriter(args.dir)
+    const { args, flags } = this.parse(DirectoryStatCmd)
+    const statWriter = new StatWriter(args.dir, { recursive: flags.recursive })
     try {
       await statWriter.export()
       this.log('Success')
@@ -27,6 +27,12 @@ DirectoryStatCmd.args = [
 DirectoryStatCmd.flags = {
   version: flags.version({ char: 'v' }),
   help: flags.help({ char: 'h' }),
+  recursive: flags.boolean({
+    char: 'r',
+    description: 'enable to get statistics recursively',
+    default: true,
+    allowNo: true,
+  }),
 }
 
 

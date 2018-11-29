@@ -3,8 +3,9 @@ const path = require('path')
 
 
 module.exports = class StatWriter {
-  constructor(dir) {
+  constructor(dir, options) {
     this.dir = dir
+    this.options = options
     this.stat = {}
   }
 
@@ -12,13 +13,13 @@ module.exports = class StatWriter {
     return path.parse(path.resolve(name))
   }
 
-  async parseChildren(name) {
+  async getStatChildren(name) {
     let children = await fs.readdir(name)
-    children = children.map(async (child) => await this.parse(path.join(name, child), { hasChildren: true }))
+    children = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: this.options.recursive }))
     return await Promise.all(children)
   }
 
-  async parse(name, options={}) {
+  async getStat(name, options={}) {
     let result = {}
     result.path = this.parsePath(name)
     const stat = await fs.stat(name)
@@ -29,13 +30,13 @@ module.exports = class StatWriter {
       mtime: stat.mtime,
     }
     if (!stat.isDirectory() || !options.hasChildren) return result
-    result.children = await this.parseChildren(name)
+    result.children = await this.getStatChildren(name)
     return result
   }
 
   async export() {
     try {
-      this.stat = await this.parse(this.dir, { hasChildren: true })
+      this.stat = await this.getStat(this.dir, { hasChildren: true })
       fs.writeFile(path.join(this.dir, '.dirstat'), JSON.stringify(this.stat, null, 2))
     } catch (err) {
       throw err
