@@ -1,5 +1,5 @@
 # directory-stat v0.1.1
-> Directory statistics
+> Get directory statistics where "fs" not available
 
 [![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat/blob/master/package.json)
 [![Version](https://img.shields.io/npm/v/directory-stat.svg)](https://npmjs.org/package/directory-stat)
@@ -19,7 +19,7 @@ $ yarn global add directory-stat
 ## Usage
 ```
 $ directory-stat --help
-Directory statistics
+Get directory statistics where "fs" not available
 
 USAGE
   $ directory-stat DIR
@@ -32,5 +32,5 @@ OPTIONS
   -v, --version  show CLI version
 
 DESCRIPTION
-  Write directory statistics to .dirstat file
+  Save directory statistics as a JSON file named ".dirstat" in that directory
 ```

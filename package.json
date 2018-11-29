@@ -1,6 +1,6 @@
 {
   "name": "directory-stat",
-  "description": "Directory statistics",
+  "description": "Get directory statistics where \"fs\" not available",
   "version": "0.1.1",
   "author": "Luong Quang Manh @lqmanh",
   "bin": {
