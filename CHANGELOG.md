@@ -1,3 +1,8 @@
+v0.1.2
+- NEW: Add `-r, --[no-]recursive` option
+- NEW: Add changelog
+- UPDATED: Improve description and docs
+
 v0.1.1
 - NEW: Store the statistics of the directory itself too
 - NEW: Store path information in `path` field

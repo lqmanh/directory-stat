@@ -1,7 +1,7 @@
 {
   "name": "directory-stat",
   "description": "Get directory statistics where \"fs\" not available",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Luong Quang Manh @lqmanh",
   "bin": {
     "directory-stat": "./bin/run"
@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.0.0"
   },
   "files": [
     "/bin",
