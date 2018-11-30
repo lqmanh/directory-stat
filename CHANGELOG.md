@@ -1,14 +1,28 @@
-v0.1.2
+# CHANGELOG
+
+## 0.2.x Branch
+### v0.2.0
+
+## 0.1.x - Early-access Branch
+### v0.1.3
+- NEW: Readd `type` field that store type of objects (block device, character device, directory, fifo pipe, file, socket, symbolic link)
+- NEW: Store size (in bytes) in `size` field
+- NEW: Show a warning message when the app is outdated
+- UPDATED: Improve docs and mark v0.1.x are early-access releases
+
+### v0.1.2
 - NEW: Add `-r, --[no-]recursive` option
 - NEW: Add changelog
 - UPDATED: Improve description and docs
 
-v0.1.1
+### v0.1.1
 - NEW: Store the statistics of the directory itself too
 - NEW: Store path information in `path` field
 - NEW: Store atime, ctime, mtime and birthtime in `timestamp` field
 - CHANGED: Remove `name` field
+- CHANGED: Remove `type` field *accidentally*
 - CHANGED: Get statistics recursively by default
 
-v0.1.0
+### v0.1.0
 - NEW: Store names of children in `children` field
+- NEW: Store type (directory, file, symbolic link) in `type` field
