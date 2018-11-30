@@ -13,6 +13,26 @@ module.exports = class StatWriter {
     return path.parse(path.resolve(name))
   }
 
+  parseTimestamp(stat) {
+    return {
+      atime: stat.atime,
+      birthtime: stat.birthtime,
+      ctime: stat.ctime,
+      mtime: stat.mtime,
+    }
+  }
+
+  parseType(stat) {
+    if (stat.isBlockDevice()) return 'block device'
+    else if (stat.isCharacterDevice()) return 'character device'
+    else if (stat.isDirectory()) return 'directory'
+    else if (stat.isFIFO()) return 'fifo pipe'
+    else if (stat.isFile()) return 'file'
+    else if (stat.isSocket()) return 'socket'
+    else if (stat.isSymbolicLink()) return 'symbolic link'
+    return undefined
+  }
+
   async getStatChildren(name) {
     let children = await fs.readdir(name)
     children = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: this.options.recursive }))
@@ -21,14 +41,13 @@ module.exports = class StatWriter {
 
   async getStat(name, options={}) {
     let result = {}
+
     result.path = this.parsePath(name)
+
     const stat = await fs.stat(name)
-    result.timestamp = {
-      atime: stat.atime,
-      birthtime: stat.birthtime,
-      ctime: stat.ctime,
-      mtime: stat.mtime,
-    }
+    result.timestamp = this.parseTimestamp(stat)
+    result.type = this.parseType(stat)
+
     if (!stat.isDirectory() || !options.hasChildren) return result
     result.children = await this.getStatChildren(name)
     return result
