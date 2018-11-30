@@ -33,10 +33,21 @@ module.exports = class StatWriter {
     return undefined
   }
 
+  async parseSize(name) {
+    const stat = await fs.stat(name)
+    if (stat.isFile()) return stat.size
+    if (!stat.isDirectory()) return 0
+    const children = await fs.readdir(name)
+    return children.reduce(async (accum, child) => {
+      const size = await this.parseSize(path.join(name, child))
+      return (await accum) + size
+    }, 0)
+  }
+
   async getStatChildren(name) {
     let children = await fs.readdir(name)
     children = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: this.options.recursive }))
-    return await Promise.all(children)
+    return Promise.all(children)
   }
 
   async getStat(name, options={}) {
@@ -47,9 +58,9 @@ module.exports = class StatWriter {
     const stat = await fs.stat(name)
     result.timestamp = this.parseTimestamp(stat)
     result.type = this.parseType(stat)
+    if (options.hasChildren && result.type === 'directory') result.children = await this.getStatChildren(name)
+    result.size = await this.parseSize(name)
 
-    if (!stat.isDirectory() || !options.hasChildren) return result
-    result.children = await this.getStatChildren(name)
     return result
   }
 
