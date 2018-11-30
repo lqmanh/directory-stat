@@ -13,24 +13,54 @@ module.exports = class StatWriter {
     return path.parse(path.resolve(name))
   }
 
-  async getStatChildren(name) {
-    let children = await fs.readdir(name)
-    children = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: this.options.recursive }))
-    return await Promise.all(children)
-  }
-
-  async getStat(name, options={}) {
-    let result = {}
-    result.path = this.parsePath(name)
-    const stat = await fs.stat(name)
-    result.timestamp = {
+  parseTimestamp(stat) {
+    return {
       atime: stat.atime,
       birthtime: stat.birthtime,
       ctime: stat.ctime,
       mtime: stat.mtime,
     }
-    if (!stat.isDirectory() || !options.hasChildren) return result
-    result.children = await this.getStatChildren(name)
+  }
+
+  parseType(stat) {
+    if (stat.isBlockDevice()) return 'block device'
+    else if (stat.isCharacterDevice()) return 'character device'
+    else if (stat.isDirectory()) return 'directory'
+    else if (stat.isFIFO()) return 'fifo pipe'
+    else if (stat.isFile()) return 'file'
+    else if (stat.isSocket()) return 'socket'
+    else if (stat.isSymbolicLink()) return 'symbolic link'
+    return undefined
+  }
+
+  async parseSize(name) {
+    const stat = await fs.stat(name)
+    if (stat.isFile()) return stat.size
+    if (!stat.isDirectory()) return 0
+    const children = await fs.readdir(name)
+    return children.reduce(async (accum, child) => {
+      const size = await this.parseSize(path.join(name, child))
+      return (await accum) + size
+    }, 0)
+  }
+
+  async getStatChildren(name) {
+    let children = await fs.readdir(name)
+    children = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: this.options.recursive }))
+    return Promise.all(children)
+  }
+
+  async getStat(name, options={}) {
+    let result = {}
+
+    result.path = this.parsePath(name)
+
+    const stat = await fs.stat(name)
+    result.timestamp = this.parseTimestamp(stat)
+    result.type = this.parseType(stat)
+    if (options.hasChildren && result.type === 'directory') result.children = await this.getStatChildren(name)
+    result.size = await this.parseSize(name)
+
     return result
   }
 
