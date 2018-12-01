@@ -7,17 +7,20 @@
 > Get directory statistics where "fs" not available
 
 ## INSTALLATION
-### Requirements
-- Node.js >= 10.0.0
+***Notice**: 0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.*
 
+### Requirements
+- Node.js >= v10.0.0
+
+### Instructions
 To use **directory-stat** as a CLI app, you need to install the package globally
 
-### With `npm`
+#### With `npm`
 ```
 $ npm install -g directory-stat
 ```
 
-### With `yarn`
+#### With `yarn`
 ```
 $ yarn global add directory-stat
 ```
@@ -41,3 +44,6 @@ OPTIONS
 DESCRIPTION
   Save directory statistics as a JSON file named ".dirstat" in that directory
 ```
+
+## CHANGELOG
+See more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).
