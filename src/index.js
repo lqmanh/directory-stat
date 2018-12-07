@@ -6,8 +6,8 @@ const StatWriter = require('./stat-writer')
 class DirectoryStatCmd extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStatCmd)
-    const { recursive, exclude } = flags
-    const statWriter = new StatWriter(args.dir, { recursive, exclude })
+    const { exclude, recursive, size, type } = flags
+    const statWriter = new StatWriter(args.dir, { recursive, exclude, size, type })
     try {
       await statWriter.export()
       this.log('Success')
@@ -28,17 +28,27 @@ DirectoryStatCmd.args = [
 DirectoryStatCmd.flags = {
   version: flags.version({ char: 'v' }),
   help: flags.help({ char: 'h' }),
-  recursive: flags.boolean({
-    char: 'r',
-    description: 'enable to get statistics of children recursively',
-    default: true,
-    allowNo: true,
-  }),
   exclude: flags.string({
     char: 'x',
     description: 'ignore any children matching this glob',
     multiple: true,
-    default: []
+    default: [],
+  }),
+  recursive: flags.boolean({
+    char: 'r',
+    description: 'get statistics of children recursively',
+    default: true,
+    allowNo: true,
+  }),
+  size: flags.boolean({
+    description: 'include size information (in bytes)',
+    default: true,
+    allowNo: true,
+  }),
+  type: flags.boolean({
+    description: 'include object type information',
+    default: true,
+    allowNo: true,
   }),
 }
 

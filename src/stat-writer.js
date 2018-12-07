@@ -34,7 +34,7 @@ module.exports = class StatWriter {
     else if (stat.isSymbolicLink()) return 'symbolic link'
     return undefined
   }
-  // get a path and return size of the object as a number. Size of a file is its fs.Stats.size,
+  // get a path and return size of the object (in bytes) as a number. Size of a file is its fs.Stats.size,
   // size of a directory is the total size of its descendants, size of the others is 0
   async parseSize(name) {
     const stat = await fs.stat(name)
@@ -56,7 +56,7 @@ module.exports = class StatWriter {
       ignore: this.options.exclude,
       onlyFiles: false,
     })
-    const result = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: this.options.recursive }))
+    const result = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: true }))
     return Promise.all(result)
   }
   // get a path and an optional options object and return its stat as an object
@@ -67,16 +67,16 @@ module.exports = class StatWriter {
 
     const stat = await fs.stat(name)
     result.timestamp = this.parseTimestamp(stat)
-    result.type = this.parseType(stat)
-    if (options.hasChildren && result.type === 'directory') result.children = await this.getStatChildren(name)
-    result.size = await this.parseSize(name)
+    result.type = this.options.type ? this.parseType(stat) : undefined
+    if (options.hasChildren && stat.isDirectory()) result.children = await this.getStatChildren(name)
+    result.size = this.options.size ? await this.parseSize(name) : undefined
 
     return result
   }
   // get directory statistics and write to .dirstat
   async export() {
     try {
-      this.stat = await this.getStat(this.dir, { hasChildren: true })
+      this.stat = await this.getStat(this.dir, { hasChildren: this.options.recursive })
       fs.writeFile(path.join(this.dir, '.dirstat'), JSON.stringify(this.stat, null, 2))
     } catch (err) {
       throw err
