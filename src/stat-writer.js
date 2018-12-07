@@ -1,5 +1,6 @@
 const fs = require('fs').promises
 const path = require('path')
+const fg = require('fast-glob')
 
 
 // Statistics writer
@@ -47,7 +48,14 @@ module.exports = class StatWriter {
   }
   // get a path to a directory and return an array of its children stats
   async getStatChildren(name) {
-    const children = await fs.readdir(name)
+    const children = await fg('*', {
+      cwd: name,
+      deep: 0,
+      dot: true,
+      followSymlinkedDirectories: false,
+      ignore: this.options.exclude,
+      onlyFiles: false,
+    })
     const result = children.map(async (child) => await this.getStat(path.join(name, child), { hasChildren: this.options.recursive }))
     return Promise.all(result)
   }
