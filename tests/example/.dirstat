@@ -1,0 +1,62 @@
+{
+  "path": {
+    "root": "/",
+    "dir": "/home/light/Projects/directory-stat/tests",
+    "base": "example",
+    "ext": "",
+    "name": "example"
+  },
+  "children": [
+    {
+      "content": "hello",
+      "path": {
+        "root": "/",
+        "dir": "/home/light/Projects/directory-stat/tests/example",
+        "base": ".dirstat",
+        "ext": "",
+        "name": ".dirstat"
+      }
+    },
+    {
+      "path": {
+        "root": "/",
+        "dir": "/home/light/Projects/directory-stat/tests/example",
+        "base": "dir1",
+        "ext": "",
+        "name": "dir1"
+      },
+      "children": [
+        {
+          "content": "hello",
+          "path": {
+            "root": "/",
+            "dir": "/home/light/Projects/directory-stat/tests/example/dir1",
+            "base": "subFile1",
+            "ext": "",
+            "name": "subFile1"
+          }
+        }
+      ]
+    },
+    {
+      "content": "hello",
+      "path": {
+        "root": "/",
+        "dir": "/home/light/Projects/directory-stat/tests/example",
+        "base": "file1",
+        "ext": "",
+        "name": "file1"
+      }
+    },
+    {
+      "content": "hello",
+      "path": {
+        "root": "/",
+        "dir": "/home/light/Projects/directory-stat/tests/example",
+        "base": "file2.txt",
+        "ext": ".txt",
+        "name": "file2"
+      }
+    }
+  ]
+}

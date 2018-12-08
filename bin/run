@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-require('..')
+require('../src/cli')
   .run()
   .catch(require('@oclif/errors/handle'))
