@@ -7,7 +7,8 @@ const fg = require('fast-glob')
 module.exports = class StatWriter {
   constructor(dir, options) {
     this.dir = dir
-    this.options = options
+    this.options = Object.assign({ recursive: true, exclude: [], size: true, type: true, statCollectors: [] }, options)
+    this.statCollectors = this.options.statCollectors
     this.stat = {}
   }
   // get a path and return an object containing path info (dir, root, base, name, ext)
@@ -70,6 +71,11 @@ module.exports = class StatWriter {
     result.type = this.options.type ? this.parseType(stat) : undefined
     if (options.hasChildren && stat.isDirectory()) result.children = await this.getStatChildren(name)
     result.size = this.options.size ? await this.parseSize(name) : undefined
+
+    // get statistics from custom stat collectors
+    await Promise.all(
+      this.statCollectors.map(async (collector) => result[collector.getName()] = await collector.collect(name, stat))
+    )
 
     return result
   }
