@@ -8,6 +8,7 @@
 - NEW: Support composable statistics collectors
 - CHANGED: Apply recursive option with the passed directory, not its children
 - CHANGED: Drop CLI support for Windows
+- UPDATED: Improve description and docs
 
 ## 0.1.x - Early-access Branch
 ### v0.1.3
