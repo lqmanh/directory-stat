@@ -1,13 +1,27 @@
 const { Command, flags } = require('@oclif/command')
 
+const PathCollector = require('./stat-collectors/path-collector')
 const StatWriter = require('./stat-writer')
 
 
 class DirectoryStat extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStat)
-    const { exclude, recursive, size, type } = flags
-    const statWriter = new StatWriter(args.dir, { recursive, exclude, size, type })
+    const { exclude, recursive, size, timestamp, type } = flags
+    const statCollectors = [new PathCollector()]
+    if (size) {
+      const SizeCollector = require('./stat-collectors/size-collector')
+      statCollectors.push(new SizeCollector())
+    }
+    if (timestamp) {
+      const TimestampCollector = require('./stat-collectors/timestamp-collector')
+      statCollectors.push(new TimestampCollector())
+    }
+    if (type) {
+      const TypeCollector = require('./stat-collectors/type-collector')
+      statCollectors.push(new TypeCollector())
+    }
+    const statWriter = new StatWriter(args.dir, { exclude, recursive, statCollectors })
     try {
       await statWriter.export()
       this.log('Success')
@@ -42,6 +56,11 @@ DirectoryStat.flags = {
   }),
   size: flags.boolean({
     description: 'include size information (in bytes)',
+    default: true,
+    allowNo: true,
+  }),
+  timestamp: flags.boolean({
+    description: 'include timestamp information',
     default: true,
     allowNo: true,
   }),

@@ -1,4 +1,4 @@
 module.exports = {
-  StatCollector: require('./stat-collector'),
+  DirectoryStat: require('./cli'),
   StatWriter: require('./stat-writer'),
 }
