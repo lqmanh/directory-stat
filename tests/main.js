@@ -1,3 +1,4 @@
+const fs = require('fs').promises
 const path = require('path')
 
 const directoryStat = require('..')
@@ -12,16 +13,21 @@ class FileContentCollector extends StatCollector {
     super(name)
   }
 
-  async collect(path, stat) {
+  async collect(pathStr, stat) {
     if (!stat.isFile()) return undefined
-    return 'hello'
+    return fs.readFile(pathStr, { encoding: 'utf8' })
   }
 }
 
 try {
   const statWriter = new StatWriter(
     path.join(__dirname, 'example'),
-    { size: false, type: false, statCollectors: [new FileContentCollector('content'), new PathCollector()] }
+    {
+      exclude: ['.dirstat'],
+      size: false,
+      type: false,
+      statCollectors: [new FileContentCollector('content'), new PathCollector()]
+    }
   )
   statWriter.export()
 } catch (err) {
