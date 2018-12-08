@@ -2,6 +2,12 @@
 
 ## 0.2.x Branch
 ### v0.2.0
+- NEW: Add `-x, --exclude` option
+- NEW: Size, timestamp and type fields are now optional with `--[no-]size`, `--[no-]timestamp`, `--[no-]type` options
+- NEW: The package can be used as a library now
+- NEW: Support composable statistics collectors
+- CHANGED: Apply recursive option with the passed directory, not its children
+- CHANGED: Drop CLI support for Windows
 
 ## 0.1.x - Early-access Branch
 ### v0.1.3

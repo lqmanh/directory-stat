@@ -27,13 +27,13 @@ module.exports = class StatWriter {
     return Promise.all(result)
   }
   // get a path and an optional options object and return its stat as an object
-  async getStat(path, options={}) {
+  async getStat(pathStr, options={}) {
     let result = {}
-    const stat = await fs.stat(path)
+    const stat = await fs.stat(pathStr)
     await Promise.all(
-      this.statCollectors.map(async (collector) => result[collector.getName()] = await collector.collect(path, stat))
+      this.statCollectors.map(async (collector) => result[collector.getName()] = await collector.collect(pathStr, stat))
       )
-    if (options.hasChildren && stat.isDirectory()) result.children = await this.getStatChildren(path)
+    if (options.hasChildren && stat.isDirectory()) result.children = await this.getStatChildren(pathStr)
     return result
   }
   // get directory statistics and write to .dirstat
