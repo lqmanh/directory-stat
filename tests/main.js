@@ -2,10 +2,10 @@ const fs = require('fs').promises
 const path = require('path')
 
 const directoryStat = require('..')
-const PathCollector = require('../src/stat-collectors/path-collector')
-const StatCollector = require('../src/stat-collectors/stat-collector')
 
 
+const PathCollector = directoryStat.StatCollectors.PathCollector
+const StatCollector = directoryStat.StatCollectors.StatCollector
 const StatWriter = directoryStat.StatWriter
 
 class FileContentCollector extends StatCollector {
