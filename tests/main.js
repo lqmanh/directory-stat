@@ -9,8 +9,8 @@ const StatCollector = require('../src/stat-collectors/stat-collector')
 const StatWriter = directoryStat.StatWriter
 
 class FileContentCollector extends StatCollector {
-  constructor(name) {
-    super(name)
+  constructor() {
+    super('content')
   }
 
   async collect(pathStr, stat) {
@@ -22,12 +22,7 @@ class FileContentCollector extends StatCollector {
 try {
   const statWriter = new StatWriter(
     path.join(__dirname, 'example'),
-    {
-      exclude: ['.dirstat'],
-      size: false,
-      type: false,
-      statCollectors: [new FileContentCollector('content'), new PathCollector()]
-    }
+    { exclude: ['.dirstat'], statCollectors: [new FileContentCollector(), new PathCollector()] }
   )
   statWriter.export()
 } catch (err) {
