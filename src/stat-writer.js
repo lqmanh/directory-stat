@@ -9,7 +9,15 @@ const PathCollector = require('./stat-collectors/path-collector')
 module.exports = class StatWriter {
   constructor(dir, options) {
     this.dir = dir
-    this.options = Object.assign({ exclude: [], recursive: true, statCollectors: [new PathCollector()] }, options)
+    this.options = Object.assign(
+      {
+        output: '.dirstat',
+        exclude: [],
+        recursive: true,
+        statCollectors: [new PathCollector()],
+      },
+      options,
+    )
     if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0
     if (this.options.depth < 0) this.options.depth = Infinity
     this.statCollectors = this.options.statCollectors
@@ -42,7 +50,7 @@ module.exports = class StatWriter {
   async export() {
     try {
       this.stat = await this.getStat(this.dir, this.options.depth)
-      fs.writeFile(path.join(this.dir, '.dirstat'), JSON.stringify(this.stat, null, 2))
+      fs.writeFile(path.join(this.dir, this.options.output), JSON.stringify(this.stat, null, 2))
     } catch (err) {
       throw err
     }
