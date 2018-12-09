@@ -14,19 +14,7 @@
         "base": "dir1",
         "ext": "",
         "name": "dir1"
-      },
-      "children": [
-        {
-          "path": {
-            "root": "/",
-            "dir": "/home/light/Projects/directory-stat/tests/example/dir1",
-            "base": "subFile1",
-            "ext": "",
-            "name": "subFile1"
-          },
-          "content": "Hello my friend\n"
-        }
-      ]
+      }
     },
     {
       "path": {

@@ -22,7 +22,12 @@ class FileContentCollector extends StatCollector {
 try {
   const statWriter = new StatWriter(
     path.join(__dirname, 'example'),
-    { exclude: ['.dirstat'], statCollectors: [new FileContentCollector(), new PathCollector()] }
+    {
+      depth: 1,
+      exclude: ['.dirstat', 'dirstat.json'],
+      output: 'dirstat.json',
+      statCollectors: [new FileContentCollector(), new PathCollector()]
+    },
   )
   statWriter.export()
 } catch (err) {

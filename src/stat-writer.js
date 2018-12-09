@@ -2,7 +2,7 @@ const fs = require('fs').promises
 const path = require('path')
 const fg = require('fast-glob')
 
-const PathCollector = require('./stat-collectors/path-collector')
+const StatCollectors = require('./stat-collectors')
 
 
 // Statistics writer
@@ -14,7 +14,12 @@ module.exports = class StatWriter {
         output: '.dirstat',
         exclude: [],
         recursive: true,
-        statCollectors: [new PathCollector()],
+        statCollectors: [
+          new StatCollectors.PathCollector(),
+          new StatCollectors.SizeCollector(),
+          new StatCollectors.TimestampCollector(),
+          new StatCollectors.TypeCollector(),
+        ],
       },
       options,
     )
