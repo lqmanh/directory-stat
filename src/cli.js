@@ -26,8 +26,8 @@ class DirectoryStat extends Command {
   }
 }
 
-DirectoryStat.description = `Composable directory statistics fetcher where "fs" insufficient
-Fetch directory statistics then save to a JSON file named ".dirstat" in that directory
+DirectoryStat.description = `Composable directory statistics fetcher where "fs" is insufficient
+Fetch directory statistics then save to a JSON file in that directory
 `
 
 DirectoryStat.args = [
