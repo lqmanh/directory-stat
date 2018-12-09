@@ -7,7 +7,10 @@ const StatWriter = require('./stat-writer')
 class DirectoryStat extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStat)
-    const { exclude, recursive, size, timestamp, type } = flags
+    const { depth, exclude, recursive, size, timestamp, type } = flags
+
+    if (Number.isNaN(depth)) this.error('-d, --depth expected an integer, not NaN')
+
     const statCollectors = [new PathCollector()]
     if (size) {
       const SizeCollector = require('./stat-collectors/size-collector')
@@ -21,7 +24,8 @@ class DirectoryStat extends Command {
       const TypeCollector = require('./stat-collectors/type-collector')
       statCollectors.push(new TypeCollector())
     }
-    const statWriter = new StatWriter(args.dir, { exclude, recursive, statCollectors })
+
+    const statWriter = new StatWriter(args.dir, { depth, exclude, recursive, statCollectors })
     try {
       await statWriter.export()
       this.log('Success')
@@ -48,9 +52,14 @@ DirectoryStat.flags = {
     multiple: true,
     default: [],
   }),
+  depth: flags.string({
+    char: 'd',
+    description: 'how deep in directory tree statistics should be fetched. Negative integer means unlimited',
+    parse: (input) => parseInt(input),
+  }),
   recursive: flags.boolean({
     char: 'r',
-    description: 'get statistics of children recursively',
+    description: '[DEPRECATED] get statistics of children recursively. This is overwritten by depth option',
     default: true,
     allowNo: true,
   }),
