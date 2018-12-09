@@ -1,6 +1,10 @@
 # CHANGELOG
 
 ## 0.2.x Branch
+### v0.2.1
+- FIXED: Attempt to fix stat collectors importing error
+- UPDATED: Update `tests/main.js` example file
+
 ### v0.2.0
 - NEW: Add `-x, --exclude` option
 - NEW: Size, timestamp and type fields are now optional with `--[no-]size`, `--[no-]timestamp`, `--[no-]type` options

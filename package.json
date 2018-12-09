@@ -1,7 +1,7 @@
 {
   "name": "directory-stat",
   "description": "Composable directory statistics fetcher where \"fs\" insufficient",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Luong Quang Manh @lqmanh",
   "bin": {
     "directory-stat": "./bin/run"
