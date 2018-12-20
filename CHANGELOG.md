@@ -1,6 +1,16 @@
 # CHANGELOG
 
-## 0.2.x Branch
+## Stable Branch
+### v0.3.0
+- NEW: Add `-o, --output` option
+- CHANGED: Deprecate `-r, --recursive` option in favor of new `-d, --depth`
+- CHANGED: StatWriter now has the same default values as in CLI
+- UPDATED: Improve `tests/main.js` example file
+
+### v0.2.1
+- FIXED: Attempt to fix stat collectors importing error
+- UPDATED: Update `tests/main.js` example file
+
 ### v0.2.0
 - NEW: Add `-x, --exclude` option
 - NEW: Size, timestamp and type fields are now optional with `--[no-]size`, `--[no-]timestamp`, `--[no-]type` options
