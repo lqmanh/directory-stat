@@ -11,7 +11,7 @@ class DirectoryStat extends Command {
 
     if (Number.isNaN(depth)) this.error('-d, --depth expected an integer, not NaN')
 
-    const statCollectors = [new StatCollectors.PathCollector()]
+    const statCollectors = []
     if (size) statCollectors.push(new StatCollectors.SizeCollector())
     if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())
     if (type) statCollectors.push(new StatCollectors.TypeCollector())

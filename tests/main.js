@@ -1,10 +1,16 @@
-const fs = require('fs').promises
+const fsModule = require('fs')
+let fs = fsModule.promises
+if (!fs) {
+  const { promisify } = require('util')
+  fs = {
+    readFile: promisify(fsModule.readFile),
+  }
+}
 const path = require('path')
 
 const directoryStat = require('..')
 
 
-const PathCollector = directoryStat.StatCollectors.PathCollector
 const StatCollector = directoryStat.StatCollectors.StatCollector
 const StatWriter = directoryStat.StatWriter
 
@@ -26,7 +32,7 @@ try {
       depth: 1,
       exclude: ['.dirstat', 'dirstat.json'],
       output: 'dirstat.json',
-      statCollectors: [new FileContentCollector(), new PathCollector()]
+      statCollectors: [new FileContentCollector()]
     },
   )
   statWriter.export()

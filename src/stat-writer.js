@@ -1,4 +1,12 @@
-const fs = require('fs').promises
+const fsModule = require('fs')
+let fs = fsModule.promises
+if (!fs) {
+  const { promisify } = require('util')
+  fs = {
+    stat: promisify(fsModule.stat),
+    writeFile: promisify(fsModule.writeFile),
+  }
+}
 const path = require('path')
 const fg = require('fast-glob')
 
@@ -15,7 +23,6 @@ module.exports = class StatWriter {
         exclude: [],
         recursive: true,
         statCollectors: [
-          new StatCollectors.PathCollector(),
           new StatCollectors.SizeCollector(),
           new StatCollectors.TimestampCollector(),
           new StatCollectors.TypeCollector(),
@@ -25,7 +32,7 @@ module.exports = class StatWriter {
     )
     if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0
     if (this.options.depth < 0) this.options.depth = Infinity
-    this.statCollectors = this.options.statCollectors
+    this.statCollectors = [new StatCollectors.PathCollector(), ...this.options.statCollectors]
     this.stat = {}
   }
   // get a path to a directory and return an array of its children stats

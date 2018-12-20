@@ -2,7 +2,6 @@
 
 ## Backward Compatible
 - Daemon mode (automaticly watch for changes)
-- Integrated path collector
 - Add some useful built-in collectors
 - Better docs
 - Support minifying output
