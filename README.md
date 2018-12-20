@@ -7,11 +7,11 @@
 
 ## INSTALLATION
 *Notice:*
-- 0.3.x is the latest stable branch.
+- 0.4.x is the latest stable branch.
 - 0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.
 
 ### Requirements
-- Node.js >= v10.0.0
+- Node.js >= v8.0.0
 
 ### Instructions
 *Notice:*
@@ -74,7 +74,7 @@ DESCRIPTION
 ```
 
 ### As a Library
-Consult [this example](https://github.com/lqmanh/directory-stat/blob/master/tests/main.js).
+See [this example](https://github.com/lqmanh/directory-stat/blob/master/tests/main.js).
 
 ## CHANGELOG
 See more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).
