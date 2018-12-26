@@ -1,6 +1,10 @@
 # CHANGELOG
 
 ## Stable Branch
+### v0.4.0
+- CHANGED: Extend support for Node.js >= 8.0.0
+- CHANGED: Integrate path collector into stat writer and cannot be removed
+
 ### v0.3.0
 - NEW: Add `-o, --output` option
 - CHANGED: Deprecate `-r, --recursive` option in favor of new `-d, --depth`
