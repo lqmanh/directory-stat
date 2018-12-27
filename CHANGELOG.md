@@ -3,6 +3,7 @@
 ## Stable Branch
 ### v0.5.0
 - NEW: Add `-m, --minified` option
+- NEW: More semantic importing: `require('directory-stat/stat-collectors')` instead of `require('directory-stat').StatCollectors`
 - CHANGED: Dependency `@oclif/plugin-warn-if-update-available` is now optional
 
 ### v0.4.0
