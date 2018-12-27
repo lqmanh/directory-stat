@@ -7,7 +7,7 @@ const StatWriter = require('./stat-writer')
 class DirectoryStat extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStat)
-    const { depth, exclude, output, recursive, size, timestamp, type } = flags
+    const { depth, exclude, minified, output, recursive, size, timestamp, type } = flags
 
     if (Number.isNaN(depth)) this.error('-d, --depth expected an integer, not NaN')
 
@@ -16,7 +16,7 @@ class DirectoryStat extends Command {
     if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())
     if (type) statCollectors.push(new StatCollectors.TypeCollector())
 
-    const statWriter = new StatWriter(args.dir, { depth, exclude, output, recursive, statCollectors })
+    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, recursive, statCollectors })
     try {
       await statWriter.export()
       this.log('Success')
@@ -35,23 +35,22 @@ DirectoryStat.args = [
 ]
 
 DirectoryStat.flags = {
-  version: flags.version({ char: 'v' }),
+  depth: flags.string({
+    char: 'd',
+    description: 'how deep in directory tree statistics should be fetched. Unlimited if < 0',
+    parse: (input) => parseInt(input),
+  }),
   help: flags.help({ char: 'h' }),
+  minified: flags.boolean({
+    char: 'm',
+    description: 'Minify output',
+    default: false,
+    allowNo: true,
+  }),
   output: flags.string({
     char: 'o',
     description: 'name of the output file',
     default: '.dirstat',
-  }),
-  exclude: flags.string({
-    char: 'x',
-    description: 'ignore any children matching this glob',
-    multiple: true,
-    default: [],
-  }),
-  depth: flags.string({
-    char: 'd',
-    description: 'how deep in directory tree statistics should be fetched. Negative integer means unlimited',
-    parse: (input) => parseInt(input),
   }),
   recursive: flags.boolean({
     char: 'r',
@@ -59,18 +58,25 @@ DirectoryStat.flags = {
     default: true,
     allowNo: true,
   }),
+  version: flags.version({ char: 'v' }),
+  exclude: flags.string({
+    char: 'x',
+    description: 'ignore any children matching this glob',
+    multiple: true,
+    default: [],
+  }),
   size: flags.boolean({
-    description: 'include size information (in bytes)',
+    description: 'include size (in bytes)',
     default: true,
     allowNo: true,
   }),
   timestamp: flags.boolean({
-    description: 'include timestamp information',
+    description: 'include timestamp',
     default: true,
     allowNo: true,
   }),
   type: flags.boolean({
-    description: 'include object type information',
+    description: 'include type',
     default: true,
     allowNo: true,
   }),

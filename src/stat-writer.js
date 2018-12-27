@@ -17,19 +17,18 @@ const StatCollectors = require('./stat-collectors')
 module.exports = class StatWriter {
   constructor(dir, options) {
     this.dir = dir
-    this.options = Object.assign(
-      {
-        output: '.dirstat',
-        exclude: [],
-        recursive: true,
-        statCollectors: [
-          new StatCollectors.SizeCollector(),
-          new StatCollectors.TimestampCollector(),
-          new StatCollectors.TypeCollector(),
-        ],
-      },
-      options,
-    )
+    const defaultOptions = {
+      minified: false,
+      output: '.dirstat',
+      exclude: [],
+      recursive: true,
+      statCollectors: [
+        new StatCollectors.SizeCollector(),
+        new StatCollectors.TimestampCollector(),
+        new StatCollectors.TypeCollector(),
+      ],
+    }
+    this.options = Object.assign(defaultOptions, options)
     if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0
     if (this.options.depth < 0) this.options.depth = Infinity
     this.statCollectors = [new StatCollectors.PathCollector(), ...this.options.statCollectors]
@@ -62,7 +61,10 @@ module.exports = class StatWriter {
   async export() {
     try {
       this.stat = await this.getStat(this.dir, this.options.depth)
-      fs.writeFile(path.join(this.dir, this.options.output), JSON.stringify(this.stat, null, 2))
+      fs.writeFile(
+        path.join(this.dir, this.options.output),
+        JSON.stringify(this.stat, null, this.options.minified ? 0 : 2)
+      )
     } catch (err) {
       throw err
     }
