@@ -7,7 +7,7 @@ const StatWriter = require('./stat-writer')
 class DirectoryStat extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStat)
-    const { depth, exclude, output, recursive, size, timestamp, type } = flags
+    const { depth, exclude, minified, output, recursive, size, timestamp, type } = flags
 
     if (Number.isNaN(depth)) this.error('-d, --depth expected an integer, not NaN')
 
@@ -16,7 +16,7 @@ class DirectoryStat extends Command {
     if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())
     if (type) statCollectors.push(new StatCollectors.TypeCollector())
 
-    const statWriter = new StatWriter(args.dir, { depth, exclude, output, recursive, statCollectors })
+    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, recursive, statCollectors })
     try {
       await statWriter.export()
       this.log('Success')
@@ -41,6 +41,12 @@ DirectoryStat.flags = {
     parse: (input) => parseInt(input),
   }),
   help: flags.help({ char: 'h' }),
+  minified: flags.boolean({
+    char: 'm',
+    description: 'Minify output',
+    default: false,
+    allowNo: true,
+  }),
   output: flags.string({
     char: 'o',
     description: 'name of the output file',
