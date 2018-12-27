@@ -61,7 +61,7 @@ module.exports = class StatWriter {
   async export() {
     try {
       this.stat = await this.getStat(this.dir, this.options.depth)
-      fs.writeFile(
+      await fs.writeFile(
         path.join(this.dir, this.options.output),
         JSON.stringify(this.stat, null, this.options.minified ? 0 : 2)
       )

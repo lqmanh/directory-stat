@@ -7,12 +7,13 @@
 - CHANGED: Dependency `@oclif/plugin-warn-if-update-available` is now optional
 
 ### v0.4.0
-- CHANGED: Extend support for Node.js >= 8.0.0
+- NEW: Extend support for Node.js >= 8.0.0
 - CHANGED: Integrate PathCollector into StatWriter and cannot be removed
 
 ### v0.3.0
 - NEW: Add `-o, --output` option
-- CHANGED: Deprecate `-r, --recursive` option in favor of new `-d, --depth`
+- NEW: Add `-d, --depth` option
+- CHANGED: Deprecate `-r, --recursive` option
 - CHANGED: StatWriter now has the same default values as in CLI
 - UPDATED: Improve example file `tests/main.js`
 
