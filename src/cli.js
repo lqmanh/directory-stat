@@ -35,23 +35,16 @@ DirectoryStat.args = [
 ]
 
 DirectoryStat.flags = {
-  version: flags.version({ char: 'v' }),
+  depth: flags.string({
+    char: 'd',
+    description: 'how deep in directory tree statistics should be fetched. Unlimited if < 0',
+    parse: (input) => parseInt(input),
+  }),
   help: flags.help({ char: 'h' }),
   output: flags.string({
     char: 'o',
     description: 'name of the output file',
     default: '.dirstat',
-  }),
-  exclude: flags.string({
-    char: 'x',
-    description: 'ignore any children matching this glob',
-    multiple: true,
-    default: [],
-  }),
-  depth: flags.string({
-    char: 'd',
-    description: 'how deep in directory tree statistics should be fetched. Negative integer means unlimited',
-    parse: (input) => parseInt(input),
   }),
   recursive: flags.boolean({
     char: 'r',
@@ -59,18 +52,25 @@ DirectoryStat.flags = {
     default: true,
     allowNo: true,
   }),
+  version: flags.version({ char: 'v' }),
+  exclude: flags.string({
+    char: 'x',
+    description: 'ignore any children matching this glob',
+    multiple: true,
+    default: [],
+  }),
   size: flags.boolean({
-    description: 'include size information (in bytes)',
+    description: 'include size (in bytes)',
     default: true,
     allowNo: true,
   }),
   timestamp: flags.boolean({
-    description: 'include timestamp information',
+    description: 'include timestamp',
     default: true,
     allowNo: true,
   }),
   type: flags.boolean({
-    description: 'include object type information',
+    description: 'include type',
     default: true,
     allowNo: true,
   }),
