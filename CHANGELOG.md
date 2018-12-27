@@ -1,6 +1,9 @@
 # CHANGELOG
 
 ## Stable Branch
+### v0.5.1
+- FIXED: Fix error not publish `/*.js` files to npm
+
 ### v0.5.0
 - NEW: Add `-m, --minified` option
 - NEW: More semantic importing: `require('directory-stat/stat-collectors')` instead of `require('directory-stat').StatCollectors`
