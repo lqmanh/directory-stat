@@ -7,7 +7,7 @@
 
 ## INSTALLATION
 *Notice:*
-- 0.4.x is the latest stable branch.
+- 0.5.x is the latest stable branch.
 - 0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.
 
 ### Requirements
@@ -38,7 +38,7 @@ $ yarn global add directory-stat
 ## USAGE
 ### As a Standalone CLI App
 Use `-h, --help` flag to see more:
-```
+```bash
 $ directory-stat --help
 Composable directory statistics fetcher where "fs" is insufficient
 
@@ -49,10 +49,12 @@ ARGUMENTS
   DIR  directory
 
 OPTIONS
-  -d, --depth=depth      how deep in directory tree statistics should be
-                         fetched. Negative integer means unlimited
+  -d, --depth=depth      how deep in directory tree statistics should be fetched.
+                         Unlimited if < 0
 
   -h, --help             show CLI help
+
+  -m, --[no-]minified    Minify output
 
   -o, --output=output    [default: .dirstat] name of the output file
 
@@ -63,18 +65,53 @@ OPTIONS
 
   -x, --exclude=exclude  [default: ] ignore any children matching this glob
 
-  --[no-]size            include size information (in bytes)
+  --[no-]size            include size (in bytes)
 
-  --[no-]timestamp       include timestamp information
+  --[no-]timestamp       include timestamp
 
-  --[no-]type            include object type information
+  --[no-]type            include type
 
 DESCRIPTION
   Fetch directory statistics then save to a JSON file in that directory
 ```
 
 ### As a Library
-See [this example](https://github.com/lqmanh/directory-stat/blob/master/tests/main.js).
+Example:
+```javascript
+const fsModule = require('fs')
+let fs = fsModule.promises
+if (!fs) {
+  const { promisify } = require('util')
+  fs = { readFile: promisify(fsModule.readFile) }
+}
+const path = require('path')
+
+const { StatWriter } = require('directory-stat')
+const { StatCollector } = require('directory-stat/stat-collectors')
+
+
+class FileContentCollector extends StatCollector {
+  constructor() {
+    super('content')
+  }
+
+  async collect(pathStr, stat) {
+    if (!stat.isFile()) return undefined
+    return fs.readFile(pathStr, { encoding: 'utf8' })
+  }
+}
+
+const statWriter = new StatWriter(
+  path.join(__dirname, 'example'),
+  {
+    depth: 1,
+    exclude: ['.dirstat', 'dirstat.json'],
+    output: 'dirstat.json',
+    statCollectors: [new FileContentCollector()]
+  },
+)
+statWriter.export().then(_ => console.log('Done'))
+```
 
 ## CHANGELOG
 See more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).

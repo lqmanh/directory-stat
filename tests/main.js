@@ -8,11 +8,9 @@ if (!fs) {
 }
 const path = require('path')
 
-const directoryStat = require('..')
+const { StatWriter } = require('..')
+const { StatCollector } = require('../stat-collectors')
 
-
-const StatCollector = directoryStat.StatCollectors.StatCollector
-const StatWriter = directoryStat.StatWriter
 
 class FileContentCollector extends StatCollector {
   constructor() {
@@ -35,7 +33,7 @@ try {
       statCollectors: [new FileContentCollector()]
     },
   )
-  statWriter.export()
+  statWriter.export().then(_ => console.log('Done'))
 } catch (err) {
   console.err(err)
 }
