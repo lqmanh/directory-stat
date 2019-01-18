@@ -1,1 +1,1 @@
-module.exports = require('./src/stat-collectors')
+module.exports = require('.').StatCollectors

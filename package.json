@@ -1,12 +1,16 @@
 {
   "name": "directory-stat",
   "description": "Composable directory statistics fetcher where \"fs\" is insufficient",
+  "license": "MIT",
   "version": "0.5.1",
   "author": "Luong Quang Manh @lqmanh",
+  "main": "dist/index.js",
   "bin": {
     "directory-stat": "./bin/run"
   },
-  "bugs": "https://github.com/lqmanh/directory-stat/issues",
+  "scripts": {
+    "build": "parcel build -t node src/index.js"
+  },
   "dependencies": {
     "@oclif/command": "^1.5.8",
     "@oclif/config": "^1.10.2",
@@ -16,14 +20,23 @@
   "optionalDependencies": {
     "@oclif/plugin-warn-if-update-available": "^1.5.4"
   },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "parcel-bundler": "^1.11.0"
+  },
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
+    "/*.js",
     "/bin",
-    "/src",
-    "/*.js"
+    "/dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lqmanh/directory-stat.git"
+  },
+  "bugs": "https://github.com/lqmanh/directory-stat/issues",
   "homepage": "https://github.com/lqmanh/directory-stat",
   "keywords": [
     "dir",
@@ -31,8 +44,6 @@
     "stat",
     "statistics"
   ],
-  "license": "MIT",
-  "main": "src/index.js",
   "oclif": {
     "bin": "directory-stat",
     "plugins": [
@@ -42,12 +53,5 @@
     "warn-if-update-available": {
       "timeoutInDays": 7
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/lqmanh/directory-stat.git"
-  },
-  "scripts": {
-    "test": "echo NO TESTS"
   }
 }
