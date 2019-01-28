@@ -1,0 +1,1368 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/cli.js",
+    "content": "const { Command, flags } = require('@oclif/command')\n\nconst StatCollectors = require('./stat-collectors')\nconst StatWriter = require('./stat-writer')\n\n\nclass DirectoryStat extends Command {\n  async run() {\n    const { args, flags } = this.parse(DirectoryStat)\n    const { depth, exclude, minified, output, recursive, size, timestamp, type } = flags\n\n    if (Number.isNaN(depth)) this.error('-d, --depth expected an integer, not NaN')\n\n    const statCollectors = []\n    if (size) statCollectors.push(new StatCollectors.SizeCollector())\n    if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())\n    if (type) statCollectors.push(new StatCollectors.TypeCollector())\n\n    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, recursive, statCollectors })\n    try {\n      await statWriter.export()\n      this.log('Success')\n    } catch (err) {\n      this.error(err)\n    }\n  }\n}\n\nDirectoryStat.description = `Composable directory statistics fetcher where \"fs\" is insufficient\nFetch directory statistics then save to a JSON file in that directory\n`\n\nDirectoryStat.args = [\n  { name: 'dir', required: true, description: 'directory' },\n]\n\nDirectoryStat.flags = {\n  depth: flags.string({\n    char: 'd',\n    description: 'how deep in directory tree statistics should be fetched. Unlimited if < 0',\n    parse: (input) => parseInt(input),\n  }),\n  help: flags.help({ char: 'h' }),\n  minified: flags.boolean({\n    char: 'm',\n    description: 'minify output',\n    default: false,\n    allowNo: true,\n  }),\n  output: flags.string({\n    char: 'o',\n    description: 'name of the output file',\n    default: '.dirstat',\n  }),\n  recursive: flags.boolean({\n    char: 'r',\n    description: '[DEPRECATED] get statistics of children recursively. This is overwritten by depth option',\n    default: true,\n    allowNo: true,\n  }),\n  version: flags.version({ char: 'v' }),\n  exclude: flags.string({\n    char: 'x',\n    description: 'ignore any children matching this glob',\n    multiple: true,\n    default: [],\n  }),\n  size: flags.boolean({\n    description: 'include size (in bytes)',\n    default: true,\n    allowNo: true,\n  }),\n  timestamp: flags.boolean({\n    description: 'include timestamp',\n    default: true,\n    allowNo: true,\n  }),\n  type: flags.boolean({\n    description: 'include type',\n    default: true,\n    allowNo: true,\n  }),\n}\n\n\nmodule.exports = DirectoryStat\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/cli.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "DirectoryStat",
+    "memberof": "src/cli.js",
+    "static": true,
+    "longname": "src/cli.js~DirectoryStat",
+    "access": "public",
+    "export": true,
+    "importPath": "directory-stat/src/cli.js",
+    "importStyle": "DirectoryStat",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "@oclif/command~Command"
+    ]
+  },
+  {
+    "__docId__": 50,
+    "kind": "method",
+    "name": "run",
+    "memberof": "src/cli.js~DirectoryStat",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/cli.js~DirectoryStat#run",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 51,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "module.exports = {\n  DirectoryStat: require('./cli'),\n  StatCollectors: require('./stat-collectors'),\n  StatWriter: require('./stat-writer'),\n}\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 52,
+    "kind": "file",
+    "name": "src/stat-collectors/index.js",
+    "content": "module.exports = {\n  PathCollector: require('./path-collector'),\n  SizeCollector: require('./size-collector'),\n  StatCollector: require('./stat-collector'),\n  TimestampCollector: require('./timestamp-collector'),\n  TypeCollector: require('./type-collector'),\n}\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/stat-collectors/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "src/stat-collectors/path-collector.js",
+    "content": "const path = require('path')\n\nconst StatCollector = require('./stat-collector')\n\n\nmodule.exports = class PathCollector extends StatCollector {\n  constructor() {\n    super('path')\n  }\n\n  async collect(pathStr, stat) {\n    return path.parse(path.resolve(pathStr))\n  }\n}\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/stat-collectors/path-collector.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "class",
+    "name": "PathCollector",
+    "memberof": "src/stat-collectors/path-collector.js",
+    "static": true,
+    "longname": "src/stat-collectors/path-collector.js~PathCollector",
+    "access": "public",
+    "export": true,
+    "importPath": "directory-stat/src/stat-collectors/path-collector.js",
+    "importStyle": "PathCollector",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/stat-collectors/stat-collector.js~StatCollector"
+    ]
+  },
+  {
+    "__docId__": 55,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/stat-collectors/path-collector.js~PathCollector",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/stat-collectors/path-collector.js~PathCollector#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "name": "collect",
+    "memberof": "src/stat-collectors/path-collector.js~PathCollector",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-collectors/path-collector.js~PathCollector#collect",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "pathStr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "stat",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "file",
+    "name": "src/stat-collectors/size-collector.js",
+    "content": "const fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = {\n    stat: promisify(fsModule.stat),\n    readdir: promisify(fsModule.readdir),\n  }\n}\nconst path = require('path')\n\nconst StatCollector = require('./stat-collector')\n\n\nmodule.exports = class SizeCollector extends StatCollector {\n  constructor() {\n    super('size')\n  }\n\n  async collect(pathStr, stat) {\n    if (!stat) stat = await fs.stat(pathStr)\n    if (stat.isFile()) return stat.size\n    if (!stat.isDirectory()) return 0\n\n    const children = await fs.readdir(pathStr)\n    return children.reduce(async (accum, child) => {\n      const size = await this.collect(path.join(pathStr, child), null)\n      return (await accum) + size\n    }, 0)\n  }\n}\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/stat-collectors/size-collector.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 58,
+    "kind": "variable",
+    "name": "fs",
+    "memberof": "src/stat-collectors/size-collector.js",
+    "static": true,
+    "longname": "src/stat-collectors/size-collector.js~fs",
+    "access": "public",
+    "export": false,
+    "importPath": "directory-stat/src/stat-collectors/size-collector.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "class",
+    "name": "SizeCollector",
+    "memberof": "src/stat-collectors/size-collector.js",
+    "static": true,
+    "longname": "src/stat-collectors/size-collector.js~SizeCollector",
+    "access": "public",
+    "export": true,
+    "importPath": "directory-stat/src/stat-collectors/size-collector.js",
+    "importStyle": "SizeCollector",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/stat-collectors/stat-collector.js~StatCollector"
+    ]
+  },
+  {
+    "__docId__": 60,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/stat-collectors/size-collector.js~SizeCollector",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/stat-collectors/size-collector.js~SizeCollector#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "collect",
+    "memberof": "src/stat-collectors/size-collector.js~SizeCollector",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-collectors/size-collector.js~SizeCollector#collect",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [
+      {
+        "name": "pathStr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "stat",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "file",
+    "name": "src/stat-collectors/stat-collector.js",
+    "content": "/**\n * Statistics collector\n * @abstract\n */\nclass StatCollector {\n  /**\n   * Constructor\n   * @param {string} name - Name of the collector and property key when exporting staticstics\n   */\n  constructor(name) {\n    /**\n     * @private\n     * @type {string}\n     */\n    this.name = name\n  }\n\n  /**\n   * Get the name of the collector\n   * @return {string} Name of the collector\n   */\n  getName() {\n    return this.name\n  }\n\n  /**\n   * Collect statistics of an entity like the directory itself or its children\n   * @abstract\n   * @param {string} path - Path to the entity\n   * @param {fs.Stats} stat - Basic statistics of the entity\n   */\n  async collect(path, stat) {\n    // need overriding\n  }\n}\n\nmodule.exports = StatCollector\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/stat-collectors/stat-collector.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 63,
+    "kind": "class",
+    "name": "StatCollector",
+    "memberof": "src/stat-collectors/stat-collector.js",
+    "static": true,
+    "longname": "src/stat-collectors/stat-collector.js~StatCollector",
+    "access": "public",
+    "export": true,
+    "importPath": "directory-stat/src/stat-collectors/stat-collector.js",
+    "importStyle": "StatCollector",
+    "description": "Statistics collector",
+    "lineNumber": 5,
+    "abstract": true,
+    "interface": false
+  },
+  {
+    "__docId__": 64,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/stat-collectors/stat-collector.js~StatCollector",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/stat-collectors/stat-collector.js~StatCollector#constructor",
+    "access": "public",
+    "description": "Constructor",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "Name of the collector and property key when exporting staticstics"
+      }
+    ]
+  },
+  {
+    "__docId__": 65,
+    "kind": "member",
+    "name": "name",
+    "memberof": "src/stat-collectors/stat-collector.js~StatCollector",
+    "static": false,
+    "longname": "src/stat-collectors/stat-collector.js~StatCollector#name",
+    "access": "private",
+    "description": "",
+    "lineNumber": 15,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "getName",
+    "memberof": "src/stat-collectors/stat-collector.js~StatCollector",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/stat-collectors/stat-collector.js~StatCollector#getName",
+    "access": "public",
+    "description": "Get the name of the collector",
+    "lineNumber": 22,
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Name of the collector"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "collect",
+    "memberof": "src/stat-collectors/stat-collector.js~StatCollector",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-collectors/stat-collector.js~StatCollector#collect",
+    "access": "public",
+    "description": "Collect statistics of an entity like the directory itself or its children",
+    "lineNumber": 32,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "path",
+        "description": "Path to the entity"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "fs.Stats"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stat",
+        "description": "Basic statistics of the entity"
+      }
+    ],
+    "abstract": true,
+    "return": null
+  },
+  {
+    "__docId__": 68,
+    "kind": "file",
+    "name": "src/stat-collectors/timestamp-collector.js",
+    "content": "const StatCollector = require('./stat-collector')\n\n\nmodule.exports = class TimestampCollector extends StatCollector {\n  constructor() {\n    super('timestamp')\n  }\n\n  async collect(path, stat) {\n    return {\n      atime: stat.atime,\n      birthtime: stat.birthtime,\n      ctime: stat.ctime,\n      mtime: stat.mtime,\n    }\n  }\n}\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/stat-collectors/timestamp-collector.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 69,
+    "kind": "class",
+    "name": "TimestampCollector",
+    "memberof": "src/stat-collectors/timestamp-collector.js",
+    "static": true,
+    "longname": "src/stat-collectors/timestamp-collector.js~TimestampCollector",
+    "access": "public",
+    "export": true,
+    "importPath": "directory-stat/src/stat-collectors/timestamp-collector.js",
+    "importStyle": "TimestampCollector",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/stat-collectors/stat-collector.js~StatCollector"
+    ]
+  },
+  {
+    "__docId__": 70,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/stat-collectors/timestamp-collector.js~TimestampCollector",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/stat-collectors/timestamp-collector.js~TimestampCollector#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "collect",
+    "memberof": "src/stat-collectors/timestamp-collector.js~TimestampCollector",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-collectors/timestamp-collector.js~TimestampCollector#collect",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "stat",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"atime\": *, \"birthtime\": *, \"ctime\": *, \"mtime\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "file",
+    "name": "src/stat-collectors/type-collector.js",
+    "content": "const StatCollector = require('./stat-collector')\n\n\nmodule.exports = class TypeCollector extends StatCollector {\n  constructor() {\n    super('type')\n  }\n\n  async collect(path, stat) {\n    if (stat.isBlockDevice()) return 'block device'\n    else if (stat.isCharacterDevice()) return 'character device'\n    else if (stat.isDirectory()) return 'directory'\n    else if (stat.isFIFO()) return 'fifo pipe'\n    else if (stat.isFile()) return 'file'\n    else if (stat.isSocket()) return 'socket'\n    else if (stat.isSymbolicLink()) return 'symbolic link'\n    return undefined\n  }\n}\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/stat-collectors/type-collector.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 73,
+    "kind": "class",
+    "name": "TypeCollector",
+    "memberof": "src/stat-collectors/type-collector.js",
+    "static": true,
+    "longname": "src/stat-collectors/type-collector.js~TypeCollector",
+    "access": "public",
+    "export": true,
+    "importPath": "directory-stat/src/stat-collectors/type-collector.js",
+    "importStyle": "TypeCollector",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/stat-collectors/stat-collector.js~StatCollector"
+    ]
+  },
+  {
+    "__docId__": 74,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/stat-collectors/type-collector.js~TypeCollector",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/stat-collectors/type-collector.js~TypeCollector#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "name": "collect",
+    "memberof": "src/stat-collectors/type-collector.js~TypeCollector",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-collectors/type-collector.js~TypeCollector#collect",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "stat",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "file",
+    "name": "src/stat-writer.js",
+    "content": "const fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = {\n    stat: promisify(fsModule.stat),\n    writeFile: promisify(fsModule.writeFile),\n  }\n}\nconst path = require('path')\nconst fg = require('fast-glob')\n\nconst statCollectors = require('./stat-collectors')\n\n\n/**\n * Statistics writer\n */\nclass StatWriter {\n  /**\n   * Constructor\n   * @param {string} dir - Path to a directory\n   * @param {Object} options - Options\n   */\n  constructor(dir, options) {\n    /**\n     * @private\n     * @type {string}\n     */\n    this.dir = dir\n    /**\n     * @private\n     * @type {Object}\n     */\n    this.options = Object.assign({\n      minified: false,\n      output: '.dirstat',\n      exclude: [],\n      recursive: true,\n      statCollectors: [\n        new statCollectors.SizeCollector(),\n        new statCollectors.TimestampCollector(),\n        new statCollectors.TypeCollector()\n      ]\n    }, options)\n    if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0\n    if (this.options.depth < 0) this.options.depth = Infinity\n    /**\n     * @private\n     * @type {Array<StatCollector>}\n     */\n    this.statCollectors = [new statCollectors.PathCollector(), ...this.options.statCollectors]\n    /**\n     * @private\n     * @type {Object}\n     */\n    this.stat = {}\n  }\n\n  /**\n   * Get a directory's children statistics\n   * @private\n   * @param {string} pathStr - Path to a directory\n   * @param {number} depth - Depth\n   * @return {Promise<Array<Object>>} Directory's children statistics\n   */\n  async getStatChildren(pathStr, depth) {\n    const children = await fg('*', {\n      cwd: pathStr,\n      deep: 0,\n      dot: true,\n      followSymlinkedDirectories: false,\n      ignore: this.options.exclude,\n      onlyFiles: false,\n    })\n    const result = children.map(async (child) => await this.getStat(path.join(pathStr, child), depth))\n    return Promise.all(result)\n  }\n\n  /**\n   * Get a directory statistics\n   * @private\n   * @param {string} pathStr - Path to a directory\n   * @param {number} depth - Depth\n   * @return {Promise<Object>} Directory statistics\n   */\n  async getStat(pathStr, depth) {\n    const result = {}\n    const stat = await fs.stat(pathStr)\n    await Promise.all(\n      this.statCollectors.map(async (collector) => result[collector.getName()] = await collector.collect(pathStr, stat))\n      )\n    if (depth > 0 && stat.isDirectory()) result.children = await this.getStatChildren(pathStr, depth - 1)\n    return result\n  }\n\n  /**\n   * Get a directory statistics and write to a file\n   */\n  async export() {\n    try {\n      this.stat = await this.getStat(this.dir, this.options.depth)\n      await fs.writeFile(\n        path.join(this.dir, this.options.output),\n        JSON.stringify(this.stat, null, this.options.minified ? 0 : 2)\n      )\n    } catch (err) {\n      throw err\n    }\n  }\n}\n\nmodule.exports = StatWriter\n",
+    "static": true,
+    "longname": "/home/light/Projects/directory-stat/src/stat-writer.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 77,
+    "kind": "variable",
+    "name": "fs",
+    "memberof": "src/stat-writer.js",
+    "static": true,
+    "longname": "src/stat-writer.js~fs",
+    "access": "public",
+    "export": false,
+    "importPath": "directory-stat/src/stat-writer.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "class",
+    "name": "StatWriter",
+    "memberof": "src/stat-writer.js",
+    "static": true,
+    "longname": "src/stat-writer.js~StatWriter",
+    "access": "public",
+    "export": true,
+    "importPath": "directory-stat/src/stat-writer.js",
+    "importStyle": "StatWriter",
+    "description": "Statistics writer",
+    "lineNumber": 19,
+    "interface": false
+  },
+  {
+    "__docId__": 79,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#constructor",
+    "access": "public",
+    "description": "Constructor",
+    "lineNumber": 25,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "dir",
+        "description": "Path to a directory"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Options"
+      }
+    ]
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "dir",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#dir",
+    "access": "private",
+    "description": "",
+    "lineNumber": 30,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "member",
+    "name": "options",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#options",
+    "access": "private",
+    "description": "",
+    "lineNumber": 35,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "member",
+    "name": "statCollectors",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#statCollectors",
+    "access": "private",
+    "description": "",
+    "lineNumber": 52,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Array<StatCollector>"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "member",
+    "name": "stat",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#stat",
+    "access": "private",
+    "description": "",
+    "lineNumber": 57,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "getStatChildren",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#getStatChildren",
+    "access": "private",
+    "description": "Get a directory's children statistics",
+    "lineNumber": 67,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "pathStr",
+        "description": "Path to a directory"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "depth",
+        "description": "Depth"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<Array<Object>>"
+      ],
+      "spread": false,
+      "description": "Directory's children statistics"
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "getStat",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#getStat",
+    "access": "private",
+    "description": "Get a directory statistics",
+    "lineNumber": 87,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "pathStr",
+        "description": "Path to a directory"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "depth",
+        "description": "Depth"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<Object>"
+      ],
+      "spread": false,
+      "description": "Directory statistics"
+    }
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "export",
+    "memberof": "src/stat-writer.js~StatWriter",
+    "generator": false,
+    "async": true,
+    "static": false,
+    "longname": "src/stat-writer.js~StatWriter#export",
+    "access": "public",
+    "description": "Get a directory statistics and write to a file",
+    "lineNumber": 100,
+    "params": [],
+    "return": null
+  },
+  {
+    "kind": "index",
+    "content": "[![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat)\n[![Version](https://img.shields.io/npm/v/directory-stat.svg)](https://npmjs.org/package/directory-stat)\n\n# directory-stat\n> Composable directory statistics fetcher where \"fs\" is insufficient\n\n## INSTALLATION\n*Notice:*\n- 0.6.x is the latest stable branch.\n- 0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.\n\n### Requirements\n- Node.js >= v8.0.0\n\n### Instructions\n*Notice:*\n- To use **directory-stat** as a standalone CLI app, you should install the package globally.\n- To use all advanced features like custom statistics collectors, you need to use this package as a library.\n\n#### With `npm`\n```\n$ npm install directory-stat\n```\nor\n```\n$ npm install -g directory-stat\n```\n\n#### With `yarn`\n```\n$ yarn add directory-stat\n```\nor\n```\n$ yarn global add directory-stat\n```\n\n## USAGE\n### As a Standalone CLI App\nUse `-h, --help` flag to see more:\n```bash\n$ directory-stat --help\nComposable directory statistics fetcher where \"fs\" is insufficient\n\nUSAGE\n  $ directory-stat DIR\n\nARGUMENTS\n  DIR  directory\n\nOPTIONS\n  -d, --depth=depth      how deep in directory tree statistics should be fetched.\n                         Unlimited if < 0\n\n  -h, --help             show CLI help\n\n  -m, --[no-]minified    minify output\n\n  -o, --output=output    [default: .dirstat] name of the output file\n\n  -r, --[no-]recursive   [DEPRECATED] get statistics of children recursively.\n                         This is overwritten by depth option\n\n  -v, --version          show CLI version\n\n  -x, --exclude=exclude  [default: ] ignore any children matching this glob\n\n  --[no-]size            include size (in bytes)\n\n  --[no-]timestamp       include timestamp\n\n  --[no-]type            include type\n\nDESCRIPTION\n  Fetch directory statistics then save to a JSON file in that directory\n```\n\n### As a Library\nExample:\n```javascript\nconst fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = { readFile: promisify(fsModule.readFile) }\n}\nconst path = require('path')\n\nconst { StatWriter } = require('directory-stat')\nconst { StatCollector } = require('directory-stat/stat-collectors')\n\n\nclass FileContentCollector extends StatCollector {\n  constructor() {\n    super('content')\n  }\n\n  async collect(pathStr, stat) {\n    if (!stat.isFile()) return undefined\n    return fs.readFile(pathStr, { encoding: 'utf8' })\n  }\n}\n\nconst statWriter = new StatWriter(\n  path.join(__dirname, 'example'),\n  {\n    depth: 1,\n    exclude: ['.dirstat', 'dirstat.json'],\n    output: 'dirstat.json',\n    statCollectors: [new FileContentCollector()]\n  },\n)\nstatWriter.export().then(_ => console.log('Done'))\n```\n\n## CHANGELOG\nRead more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).\n\n## TODO\nRead more [here](https://github.com/lqmanh/directory-stat/blob/master/TODO.md).\n",
+    "longname": "/home/light/Projects/directory-stat/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"directory-stat\",\n  \"description\": \"Composable directory statistics fetcher where \\\"fs\\\" is insufficient\",\n  \"license\": \"MIT\",\n  \"version\": \"0.6.0\",\n  \"author\": \"Luong Quang Manh @lqmanh\",\n  \"main\": \"dist/index.js\",\n  \"bin\": {\n    \"directory-stat\": \"./bin/run\"\n  },\n  \"scripts\": {\n    \"build:docs\": \"esdoc\",\n    \"build\": \"parcel build -t node src/index.js\"\n  },\n  \"dependencies\": {\n    \"@oclif/command\": \"^1.5.8\",\n    \"@oclif/config\": \"^1.10.2\",\n    \"@oclif/plugin-help\": \"^2.1.4\",\n    \"fast-glob\": \"^2.2.4\"\n  },\n  \"optionalDependencies\": {\n    \"@oclif/plugin-warn-if-update-available\": \"^1.5.4\"\n  },\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^5.12.0\",\n    \"parcel-bundler\": \"^1.11.0\"\n  },\n  \"engines\": {\n    \"node\": \">=8.0.0\"\n  },\n  \"files\": [\n    \"/*.js\",\n    \"/bin\",\n    \"/dist\"\n  ],\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git://github.com/lqmanh/directory-stat.git\"\n  },\n  \"bugs\": \"https://github.com/lqmanh/directory-stat/issues\",\n  \"homepage\": \"https://github.com/lqmanh/directory-stat\",\n  \"keywords\": [\n    \"dir\",\n    \"directory\",\n    \"stat\",\n    \"statistics\"\n  ],\n  \"oclif\": {\n    \"bin\": \"directory-stat\",\n    \"plugins\": [\n      \"@oclif/plugin-help\",\n      \"@oclif/plugin-warn-if-update-available\"\n    ],\n    \"warn-if-update-available\": {\n      \"timeoutInDays\": 7\n    }\n  }\n}\n",
+    "longname": "/home/light/Projects/directory-stat/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

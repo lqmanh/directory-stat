@@ -5,6 +5,7 @@
 - Add some useful built-in collectors
 - Improve performance by reading old statistics
 - Progress bars and/or spinners for CLI
+- Load configs from files
 
 ## Breaking Changes
 - Remove `-r, --recursive` option

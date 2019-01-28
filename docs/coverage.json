@@ -1,0 +1,64 @@
+{
+  "coverage": "46.66%",
+  "expectCount": 30,
+  "actualCount": 14,
+  "files": {
+    "src/cli.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8
+      ]
+    },
+    "src/stat-collectors/path-collector.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        6,
+        7,
+        11
+      ]
+    },
+    "src/stat-collectors/size-collector.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        15,
+        16,
+        20
+      ]
+    },
+    "src/stat-collectors/stat-collector.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/stat-collectors/timestamp-collector.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        5,
+        9
+      ]
+    },
+    "src/stat-collectors/type-collector.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        5,
+        9
+      ]
+    },
+    "src/stat-writer.js": {
+      "expectCount": 10,
+      "actualCount": 9,
+      "undocumentLines": [
+        2
+      ]
+    }
+  }
+}
