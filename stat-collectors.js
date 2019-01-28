@@ -1,1 +1,1 @@
-module.exports = require('.').StatCollectors
+module.exports = require('./dist/stat-collectors')

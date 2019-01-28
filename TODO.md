@@ -9,5 +9,4 @@
 
 ## Breaking Changes
 - Remove `-r, --recursive` option
-- Remove `DirectoryStat` and `StatCollectors` from main entry point
 - Drop support for Node.js < 10.0.0

@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build:docs": "esdoc",
-    "build": "parcel build -t node src/index.js"
+    "build": "parcel build -t node src/index.js src/cli.js src/stat-collectors/index.js"
   },
   "dependencies": {
     "@oclif/command": "^1.5.8",
