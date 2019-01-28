@@ -33,17 +33,16 @@ class StatWriter {
      * @type {Object}
      */
     this.options = Object.assign({
+      depth: -1,
+      exclude: [],
       minified: false,
       output: '.dirstat',
-      exclude: [],
-      recursive: true,
       statCollectors: [
         new statCollectors.SizeCollector(),
         new statCollectors.TimestampCollector(),
         new statCollectors.TypeCollector()
       ]
     }, options)
-    if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0
     if (this.options.depth < 0) this.options.depth = Infinity
     /**
      * @private

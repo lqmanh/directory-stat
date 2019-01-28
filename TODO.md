@@ -8,5 +8,4 @@
 - Load configs from files
 
 ## Breaking Changes
-- Remove `-r, --recursive` option
 - Drop support for Node.js < 10.0.0

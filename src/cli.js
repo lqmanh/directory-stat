@@ -1,22 +1,22 @@
 const { Command, flags } = require('@oclif/command')
 
-const StatCollectors = require('./stat-collectors')
+const statCollectors = require('./stat-collectors')
 const StatWriter = require('./stat-writer')
 
 
 class DirectoryStat extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStat)
-    const { depth, exclude, minified, output, recursive, size, timestamp, type } = flags
+    const { depth, exclude, minified, output, size, timestamp, type } = flags
 
     if (Number.isNaN(depth)) this.error('-d, --depth expected an integer, not NaN')
 
-    const statCollectors = []
-    if (size) statCollectors.push(new StatCollectors.SizeCollector())
-    if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())
-    if (type) statCollectors.push(new StatCollectors.TypeCollector())
+    const collectors = []
+    if (size) collectors.push(new statCollectors.SizeCollector())
+    if (timestamp) collectors.push(new statCollectors.TimestampCollector())
+    if (type) collectors.push(new statCollectors.TypeCollector())
 
-    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, recursive, statCollectors })
+    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, statCollectors: collectors })
     try {
       await statWriter.export()
       this.log('Success')
@@ -38,6 +38,7 @@ DirectoryStat.flags = {
   depth: flags.string({
     char: 'd',
     description: 'how deep in directory tree statistics should be fetched. Unlimited if < 0',
+    default: -1,
     parse: (input) => parseInt(input),
   }),
   help: flags.help({ char: 'h' }),
@@ -51,12 +52,6 @@ DirectoryStat.flags = {
     char: 'o',
     description: 'name of the output file',
     default: '.dirstat',
-  }),
-  recursive: flags.boolean({
-    char: 'r',
-    description: '[DEPRECATED] get statistics of children recursively. This is overwritten by depth option',
-    default: true,
-    allowNo: true,
   }),
   version: flags.version({ char: 'v' }),
   exclude: flags.string({
