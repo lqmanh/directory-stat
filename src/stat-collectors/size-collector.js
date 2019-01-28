@@ -4,13 +4,12 @@ if (!fs) {
   const { promisify } = require('util')
   fs = {
     stat: promisify(fsModule.stat),
-    readdir: promisify(fsModule.readdir),
+    readdir: promisify(fsModule.readdir)
   }
 }
 const path = require('path')
 
 const StatCollector = require('./stat-collector')
-
 
 module.exports = class SizeCollector extends StatCollector {
   constructor() {

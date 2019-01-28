@@ -1,6 +1,5 @@
 const StatCollector = require('./stat-collector')
 
-
 module.exports = class TypeCollector extends StatCollector {
   constructor() {
     super('type')

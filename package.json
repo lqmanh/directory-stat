@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build:docs": "esdoc",
-    "build": "parcel build -t node src/index.js src/cli.js src/stat-collectors/index.js"
+    "build": "parcel build -t node src/index.js src/cli.js src/stat-collectors/index.js",
+    "prepublish": "yarn run build"
   },
   "dependencies": {
     "@oclif/command": "^1.5.8",
@@ -37,10 +38,7 @@
     "/bin",
     "/dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/lqmanh/directory-stat.git"
-  },
+  "repository": "github:lqmanh/directory-stat",
   "bugs": "https://github.com/lqmanh/directory-stat/issues",
   "homepage": "https://github.com/lqmanh/directory-stat",
   "keywords": [

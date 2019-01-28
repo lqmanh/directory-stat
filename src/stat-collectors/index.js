@@ -3,5 +3,5 @@ module.exports = {
   PathCollector: require('./path-collector'),
   SizeCollector: require('./size-collector'),
   TimestampCollector: require('./timestamp-collector'),
-  TypeCollector: require('./type-collector'),
+  TypeCollector: require('./type-collector')
 }
