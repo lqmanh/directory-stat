@@ -1,13 +1,12 @@
-[![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat/blob/master/package.json)
+[![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat)
 [![Version](https://img.shields.io/npm/v/directory-stat.svg)](https://npmjs.org/package/directory-stat)
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 
 # directory-stat
 > Composable directory statistics fetcher where "fs" is insufficient
 
 ## INSTALLATION
 *Notice:*
-- 0.5.x is the latest stable branch.
+- 0.6.x is the latest stable branch.
 - 0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.
 
 ### Requirements
@@ -15,7 +14,8 @@
 
 ### Instructions
 *Notice:*
-- To use **directory-stat** as a standalone CLI app, you need to install the package globally.
+- To use **directory-stat** as a standalone CLI app, you should install the package globally.
+- To use all advanced features like custom statistics collectors, you need to use this package as a library.
 
 #### With `npm`
 ```
@@ -54,7 +54,7 @@ OPTIONS
 
   -h, --help             show CLI help
 
-  -m, --[no-]minified    Minify output
+  -m, --[no-]minified    minify output
 
   -o, --output=output    [default: .dirstat] name of the output file
 
@@ -114,4 +114,7 @@ statWriter.export().then(_ => console.log('Done'))
 ```
 
 ## CHANGELOG
-See more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).
+Read more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).
+
+## TODO
+Read more [here](https://github.com/lqmanh/directory-stat/blob/master/TODO.md).

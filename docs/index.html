@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Home | directory-stat</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Composable directory statistics fetcher where " fs"="" is="" insufficient"=""><meta property="twitter:card" content="summary"><meta property="twitter:title" content="directory-stat"><meta property="twitter:description" content="Composable directory statistics fetcher where " fs"="" is="" insufficient"=""></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cli.js~DirectoryStat.html">DirectoryStat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-writer.js~StatWriter.html">StatWriter</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#stat-collectors">stat-collectors</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/path-collector.js~PathCollector.html">PathCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/size-collector.js~SizeCollector.html">SizeCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/stat-collector.js~StatCollector.html">StatCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/timestamp-collector.js~TimestampCollector.html">TimestampCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/type-collector.js~TypeCollector.html">TypeCollector</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><p><a href="https://github.com/lqmanh/directory-stat"><img src="https://img.shields.io/npm/l/directory-stat.svg" alt="License"></a>
+<a href="https://npmjs.org/package/directory-stat"><img src="https://img.shields.io/npm/v/directory-stat.svg" alt="Version"></a></p>
+<h1 id="directory-stat">directory-stat</h1><blockquote>
+<p>Composable directory statistics fetcher where &quot;fs&quot; is insufficient</p>
+</blockquote>
+<h2 id="installation">INSTALLATION</h2><p><em>Notice:</em></p>
+<ul>
+<li>0.6.x is the latest stable branch.</li>
+<li>0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.</li>
+</ul>
+<h3 id="requirements">Requirements</h3><ul>
+<li>Node.js &gt;= v8.0.0</li>
+</ul>
+<h3 id="instructions">Instructions</h3><p><em>Notice:</em></p>
+<ul>
+<li>To use <strong>directory-stat</strong> as a standalone CLI app, you should install the package globally.</li>
+<li>To use all advanced features like custom statistics collectors, you need to use this package as a library.</li>
+</ul>
+<h4 id="with--code-npm--code-">With <code>npm</code></h4><pre><code><code class="source-code prettyprint">$ npm install directory-stat</code>
+</code></pre><p>or</p>
+<pre><code><code class="source-code prettyprint">$ npm install -g directory-stat</code>
+</code></pre><h4 id="with--code-yarn--code-">With <code>yarn</code></h4><pre><code><code class="source-code prettyprint">$ yarn add directory-stat</code>
+</code></pre><p>or</p>
+<pre><code><code class="source-code prettyprint">$ yarn global add directory-stat</code>
+</code></pre><h2 id="usage">USAGE</h2><h3 id="as-a-standalone-cli-app">As a Standalone CLI App</h3><p>Use <code>-h, --help</code> flag to see more:</p>
+<pre><code class="lang-bash"><code class="source-code prettyprint">$ directory-stat --help
+Composable directory statistics fetcher where &quot;fs&quot; is insufficient
+
+USAGE
+  $ directory-stat DIR
+
+ARGUMENTS
+  DIR  directory
+
+OPTIONS
+  -d, --depth=depth      how deep in directory tree statistics should be fetched.
+                         Unlimited if &lt; 0
+
+  -h, --help             show CLI help
+
+  -m, --[no-]minified    minify output
+
+  -o, --output=output    [default: .dirstat] name of the output file
+
+  -r, --[no-]recursive   [DEPRECATED] get statistics of children recursively.
+                         This is overwritten by depth option
+
+  -v, --version          show CLI version
+
+  -x, --exclude=exclude  [default: ] ignore any children matching this glob
+
+  --[no-]size            include size (in bytes)
+
+  --[no-]timestamp       include timestamp
+
+  --[no-]type            include type
+
+DESCRIPTION
+  Fetch directory statistics then save to a JSON file in that directory</code>
+</code></pre>
+<h3 id="as-a-library">As a Library</h3><p>Example:</p>
+<pre><code class="lang-javascript"><code class="source-code prettyprint">const fsModule = require(&apos;fs&apos;)
+let fs = fsModule.promises
+if (!fs) {
+  const { promisify } = require(&apos;util&apos;)
+  fs = { readFile: promisify(fsModule.readFile) }
+}
+const path = require(&apos;path&apos;)
+
+const { StatWriter } = require(&apos;directory-stat&apos;)
+const { StatCollector } = require(&apos;directory-stat/stat-collectors&apos;)
+
+
+class FileContentCollector extends StatCollector {
+  constructor() {
+    super(&apos;content&apos;)
+  }
+
+  async collect(pathStr, stat) {
+    if (!stat.isFile()) return undefined
+    return fs.readFile(pathStr, { encoding: &apos;utf8&apos; })
+  }
+}
+
+const statWriter = new StatWriter(
+  path.join(__dirname, &apos;example&apos;),
+  {
+    depth: 1,
+    exclude: [&apos;.dirstat&apos;, &apos;dirstat.json&apos;],
+    output: &apos;dirstat.json&apos;,
+    statCollectors: [new FileContentCollector()]
+  },
+)
+statWriter.export().then(_ =&gt; console.log(&apos;Done&apos;))</code>
+</code></pre>
+<h2 id="changelog">CHANGELOG</h2><p>Read more <a href="https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md">here</a>.</p>
+<h2 id="todo">TODO</h2><p>Read more <a href="https://github.com/lqmanh/directory-stat/blob/master/TODO.md">here</a>.</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

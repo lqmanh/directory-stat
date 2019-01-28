@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/cli.js | directory-stat</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Composable directory statistics fetcher where " fs"="" is="" insufficient"=""><meta property="twitter:card" content="summary"><meta property="twitter:title" content="directory-stat"><meta property="twitter:description" content="Composable directory statistics fetcher where " fs"="" is="" insufficient"=""></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/cli.js~DirectoryStat.html">DirectoryStat</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-writer.js~StatWriter.html">StatWriter</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#stat-collectors">stat-collectors</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/path-collector.js~PathCollector.html">PathCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/size-collector.js~SizeCollector.html">SizeCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/stat-collector.js~StatCollector.html">StatCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/timestamp-collector.js~TimestampCollector.html">TimestampCollector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/stat-collectors/type-collector.js~TypeCollector.html">TypeCollector</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/cli.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const { Command, flags } = require(&apos;@oclif/command&apos;)
+
+const StatCollectors = require(&apos;./stat-collectors&apos;)
+const StatWriter = require(&apos;./stat-writer&apos;)
+
+
+class DirectoryStat extends Command {
+  async run() {
+    const { args, flags } = this.parse(DirectoryStat)
+    const { depth, exclude, minified, output, recursive, size, timestamp, type } = flags
+
+    if (Number.isNaN(depth)) this.error(&apos;-d, --depth expected an integer, not NaN&apos;)
+
+    const statCollectors = []
+    if (size) statCollectors.push(new StatCollectors.SizeCollector())
+    if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())
+    if (type) statCollectors.push(new StatCollectors.TypeCollector())
+
+    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, recursive, statCollectors })
+    try {
+      await statWriter.export()
+      this.log(&apos;Success&apos;)
+    } catch (err) {
+      this.error(err)
+    }
+  }
+}
+
+DirectoryStat.description = `Composable directory statistics fetcher where &quot;fs&quot; is insufficient
+Fetch directory statistics then save to a JSON file in that directory
+`
+
+DirectoryStat.args = [
+  { name: &apos;dir&apos;, required: true, description: &apos;directory&apos; },
+]
+
+DirectoryStat.flags = {
+  depth: flags.string({
+    char: &apos;d&apos;,
+    description: &apos;how deep in directory tree statistics should be fetched. Unlimited if &lt; 0&apos;,
+    parse: (input) =&gt; parseInt(input),
+  }),
+  help: flags.help({ char: &apos;h&apos; }),
+  minified: flags.boolean({
+    char: &apos;m&apos;,
+    description: &apos;minify output&apos;,
+    default: false,
+    allowNo: true,
+  }),
+  output: flags.string({
+    char: &apos;o&apos;,
+    description: &apos;name of the output file&apos;,
+    default: &apos;.dirstat&apos;,
+  }),
+  recursive: flags.boolean({
+    char: &apos;r&apos;,
+    description: &apos;[DEPRECATED] get statistics of children recursively. This is overwritten by depth option&apos;,
+    default: true,
+    allowNo: true,
+  }),
+  version: flags.version({ char: &apos;v&apos; }),
+  exclude: flags.string({
+    char: &apos;x&apos;,
+    description: &apos;ignore any children matching this glob&apos;,
+    multiple: true,
+    default: [],
+  }),
+  size: flags.boolean({
+    description: &apos;include size (in bytes)&apos;,
+    default: true,
+    allowNo: true,
+  }),
+  timestamp: flags.boolean({
+    description: &apos;include timestamp&apos;,
+    default: true,
+    allowNo: true,
+  }),
+  type: flags.boolean({
+    description: &apos;include type&apos;,
+    default: true,
+    allowNo: true,
+  }),
+}
+
+
+module.exports = DirectoryStat
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
