@@ -43,7 +43,7 @@ DirectoryStat.flags = {
   help: flags.help({ char: 'h' }),
   minified: flags.boolean({
     char: 'm',
-    description: 'Minify output',
+    description: 'minify output',
     default: false,
     allowNo: true,
   }),

@@ -10,31 +10,60 @@ if (!fs) {
 const path = require('path')
 const fg = require('fast-glob')
 
-const StatCollectors = require('./stat-collectors')
+const statCollectors = require('./stat-collectors')
 
 
-// Statistics writer
-module.exports = class StatWriter {
+/**
+ * Statistics writer
+ */
+class StatWriter {
+  /**
+   * Constructor
+   * @param {string} dir - Path to a directory
+   * @param {Object} options - Options
+   */
   constructor(dir, options) {
+    /**
+     * @private
+     * @type {string}
+     */
     this.dir = dir
-    const defaultOptions = {
+    /**
+     * @private
+     * @type {Object}
+     */
+    this.options = Object.assign({
       minified: false,
       output: '.dirstat',
       exclude: [],
       recursive: true,
       statCollectors: [
-        new StatCollectors.SizeCollector(),
-        new StatCollectors.TimestampCollector(),
-        new StatCollectors.TypeCollector(),
-      ],
-    }
-    this.options = Object.assign(defaultOptions, options)
+        new statCollectors.SizeCollector(),
+        new statCollectors.TimestampCollector(),
+        new statCollectors.TypeCollector()
+      ]
+    }, options)
     if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0
     if (this.options.depth < 0) this.options.depth = Infinity
-    this.statCollectors = [new StatCollectors.PathCollector(), ...this.options.statCollectors]
+    /**
+     * @private
+     * @type {Array<StatCollector>}
+     */
+    this.statCollectors = [new statCollectors.PathCollector(), ...this.options.statCollectors]
+    /**
+     * @private
+     * @type {Object}
+     */
     this.stat = {}
   }
-  // get a path to a directory and return an array of its children stats
+
+  /**
+   * Get a directory's children statistics
+   * @private
+   * @param {string} pathStr - Path to a directory
+   * @param {number} depth - Depth
+   * @return {Promise<Array<Object>>} Directory's children statistics
+   */
   async getStatChildren(pathStr, depth) {
     const children = await fg('*', {
       cwd: pathStr,
@@ -47,9 +76,16 @@ module.exports = class StatWriter {
     const result = children.map(async (child) => await this.getStat(path.join(pathStr, child), depth))
     return Promise.all(result)
   }
-  // get a path and depth then return its stat as an object
+
+  /**
+   * Get a directory statistics
+   * @private
+   * @param {string} pathStr - Path to a directory
+   * @param {number} depth - Depth
+   * @return {Promise<Object>} Directory statistics
+   */
   async getStat(pathStr, depth) {
-    let result = {}
+    const result = {}
     const stat = await fs.stat(pathStr)
     await Promise.all(
       this.statCollectors.map(async (collector) => result[collector.getName()] = await collector.collect(pathStr, stat))
@@ -57,7 +93,10 @@ module.exports = class StatWriter {
     if (depth > 0 && stat.isDirectory()) result.children = await this.getStatChildren(pathStr, depth - 1)
     return result
   }
-  // get directory statistics and write to .dirstat
+
+  /**
+   * Get a directory statistics and write to a file
+   */
   async export() {
     try {
       this.stat = await this.getStat(this.dir, this.options.depth)
@@ -70,3 +109,5 @@ module.exports = class StatWriter {
     }
   }
 }
+
+module.exports = StatWriter
