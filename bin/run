@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-require('../src/cli')
+require('..').DirectoryStat
   .run()
   .catch(require('@oclif/errors/handle'))
