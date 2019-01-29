@@ -4,13 +4,12 @@
   "license": "MIT",
   "version": "0.6.0",
   "author": "Luong Quang Manh @lqmanh",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "bin": {
     "directory-stat": "./bin/run"
   },
   "scripts": {
-    "build:docs": "esdoc",
-    "build": "parcel build -t node src/index.js"
+    "build:docs": "esdoc"
   },
   "dependencies": {
     "@oclif/command": "^1.5.8",
@@ -26,8 +25,7 @@
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
     "esdoc-node": "^1.0.4",
     "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^5.12.0",
-    "parcel-bundler": "^1.11.0"
+    "eslint": "^5.12.0"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -37,10 +35,7 @@
     "/bin",
     "/dist"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/lqmanh/directory-stat.git"
-  },
+  "repository": "github:lqmanh/directory-stat",
   "bugs": "https://github.com/lqmanh/directory-stat/issues",
   "homepage": "https://github.com/lqmanh/directory-stat",
   "keywords": [

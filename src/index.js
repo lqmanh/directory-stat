@@ -1,5 +1,1 @@
-module.exports = {
-  DirectoryStat: require('./cli'),
-  StatCollectors: require('./stat-collectors'),
-  StatWriter: require('./stat-writer'),
-}
+module.exports.StatWriter = require('./stat-writer')

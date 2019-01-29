@@ -4,14 +4,18 @@ if (!fs) {
   const { promisify } = require('util')
   fs = {
     stat: promisify(fsModule.stat),
-    writeFile: promisify(fsModule.writeFile),
+    writeFile: promisify(fsModule.writeFile)
   }
 }
 const path = require('path')
 const fg = require('fast-glob')
 
-const statCollectors = require('./stat-collectors')
-
+const {
+  PathCollector,
+  SizeCollector,
+  TimestampCollector,
+  TypeCollector
+} = require('./stat-collectors')
 
 /**
  * Statistics writer
@@ -32,25 +36,28 @@ class StatWriter {
      * @private
      * @type {Object}
      */
-    this.options = Object.assign({
-      minified: false,
-      output: '.dirstat',
-      exclude: [],
-      recursive: true,
-      statCollectors: [
-        new statCollectors.SizeCollector(),
-        new statCollectors.TimestampCollector(),
-        new statCollectors.TypeCollector()
-      ]
-    }, options)
-    if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0
+    this.options = Object.assign(
+      {
+        depth: -1,
+        exclude: [],
+        minified: false,
+        output: '.dirstat',
+        statCollectors: [
+          new SizeCollector(),
+          new TimestampCollector(),
+          new TypeCollector()
+        ]
+      },
+      options
+    )
     if (this.options.depth < 0) this.options.depth = Infinity
     /**
      * @private
      * @type {Array<StatCollector>}
      */
-    this.statCollectors = [new statCollectors.PathCollector(), ...this.options.statCollectors]
+    this.statCollectors = [new PathCollector(), ...this.options.statCollectors]
     /**
+     * Final result
      * @private
      * @type {Object}
      */
@@ -71,9 +78,11 @@ class StatWriter {
       dot: true,
       followSymlinkedDirectories: false,
       ignore: this.options.exclude,
-      onlyFiles: false,
+      onlyFiles: false
     })
-    const result = children.map(async (child) => await this.getStat(path.join(pathStr, child), depth))
+    const result = children.map(
+      async (child) => await this.getStat(path.join(pathStr, child), depth)
+    )
     return Promise.all(result)
   }
 
@@ -88,14 +97,18 @@ class StatWriter {
     const result = {}
     const stat = await fs.stat(pathStr)
     await Promise.all(
-      this.statCollectors.map(async (collector) => result[collector.getName()] = await collector.collect(pathStr, stat))
+      this.statCollectors.map(
+        async (collector) =>
+          (result[collector.getName()] = await collector.collect(pathStr, stat))
       )
-    if (depth > 0 && stat.isDirectory()) result.children = await this.getStatChildren(pathStr, depth - 1)
+    )
+    if (depth > 0 && stat.isDirectory())
+      result.children = await this.getStatChildren(pathStr, depth - 1)
     return result
   }
 
   /**
-   * Get a directory statistics and write to a file
+   * Get a directory statistics then write them to a file
    */
   async export() {
     try {
