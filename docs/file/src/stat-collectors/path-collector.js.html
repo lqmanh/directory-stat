@@ -45,16 +45,20 @@
 
 const StatCollector = require(&apos;./stat-collector&apos;)
 
-
-module.exports = class PathCollector extends StatCollector {
+/**
+ * Collect path information
+ */
+class PathCollector extends StatCollector {
   constructor() {
     super(&apos;path&apos;)
   }
 
-  async collect(pathStr, stat) {
+  async collect(pathStr) {
     return path.parse(path.resolve(pathStr))
   }
 }
+
+module.exports = PathCollector
 </code></pre>
 
 </div>

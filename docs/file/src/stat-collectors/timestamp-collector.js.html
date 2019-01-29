@@ -43,8 +43,10 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/stat-collectors/timestamp-collector.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const StatCollector = require(&apos;./stat-collector&apos;)
 
-
-module.exports = class TimestampCollector extends StatCollector {
+/**
+ * Collect timestamp information (atime, birthtime, ctime, mtime)
+ */
+class TimestampCollector extends StatCollector {
   constructor() {
     super(&apos;timestamp&apos;)
   }
@@ -54,10 +56,12 @@ module.exports = class TimestampCollector extends StatCollector {
       atime: stat.atime,
       birthtime: stat.birthtime,
       ctime: stat.ctime,
-      mtime: stat.mtime,
+      mtime: stat.mtime
     }
   }
 }
+
+module.exports = TimestampCollector
 </code></pre>
 
 </div>

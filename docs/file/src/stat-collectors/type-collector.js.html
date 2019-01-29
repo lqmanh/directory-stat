@@ -43,8 +43,10 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/stat-collectors/type-collector.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const StatCollector = require(&apos;./stat-collector&apos;)
 
-
-module.exports = class TypeCollector extends StatCollector {
+/**
+ * Collect type information
+ */
+class TypeCollector extends StatCollector {
   constructor() {
     super(&apos;type&apos;)
   }
@@ -60,6 +62,8 @@ module.exports = class TypeCollector extends StatCollector {
     return undefined
   }
 }
+
+module.exports = TypeCollector
 </code></pre>
 
 </div>

@@ -1,6 +1,9 @@
 const StatCollector = require('./stat-collector')
 
-module.exports = class TimestampCollector extends StatCollector {
+/**
+ * Collect timestamp information (atime, birthtime, ctime, mtime)
+ */
+class TimestampCollector extends StatCollector {
   constructor() {
     super('timestamp')
   }
@@ -14,3 +17,5 @@ module.exports = class TimestampCollector extends StatCollector {
     }
   }
 }
+
+module.exports = TimestampCollector

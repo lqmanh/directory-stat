@@ -1,6 +1,9 @@
 const StatCollector = require('./stat-collector')
 
-module.exports = class TypeCollector extends StatCollector {
+/**
+ * Collect type information
+ */
+class TypeCollector extends StatCollector {
   constructor() {
     super('type')
   }
@@ -16,3 +19,5 @@ module.exports = class TypeCollector extends StatCollector {
     return undefined
   }
 }
+
+module.exports = TypeCollector

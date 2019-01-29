@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 259,
+  "end": 258,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 259,
+    "end": 258,
     "loc": {
       "start": {
         "line": 1,
@@ -31,7 +31,7 @@
       {
         "type": "ExportDefaultDeclaration",
         "start": 0,
-        "end": 258,
+        "end": 257,
         "loc": {
           "start": {
             "line": 1,
@@ -45,7 +45,7 @@
         "declaration": {
           "type": "ObjectExpression",
           "start": 15,
-          "end": 258,
+          "end": 257,
           "loc": {
             "start": {
               "line": 1,
@@ -87,9 +87,9 @@
                     "line": 2,
                     "column": 15
                   },
-                  "identifierName": "PathCollector"
+                  "identifierName": "StatCollector"
                 },
-                "name": "PathCollector"
+                "name": "StatCollector"
               },
               "value": {
                 "type": "CallExpression",
@@ -138,10 +138,10 @@
                       }
                     },
                     "extra": {
-                      "rawValue": "./path-collector",
-                      "raw": "'./path-collector'"
+                      "rawValue": "./stat-collector",
+                      "raw": "'./stat-collector'"
                     },
-                    "value": "./path-collector"
+                    "value": "./stat-collector"
                   }
                 ]
               }
@@ -176,9 +176,9 @@
                     "line": 3,
                     "column": 15
                   },
-                  "identifierName": "SizeCollector"
+                  "identifierName": "PathCollector"
                 },
-                "name": "SizeCollector"
+                "name": "PathCollector"
               },
               "value": {
                 "type": "CallExpression",
@@ -227,10 +227,10 @@
                       }
                     },
                     "extra": {
-                      "rawValue": "./size-collector",
-                      "raw": "'./size-collector'"
+                      "rawValue": "./path-collector",
+                      "raw": "'./path-collector'"
                     },
-                    "value": "./size-collector"
+                    "value": "./path-collector"
                   }
                 ]
               }
@@ -265,9 +265,9 @@
                     "line": 4,
                     "column": 15
                   },
-                  "identifierName": "StatCollector"
+                  "identifierName": "SizeCollector"
                 },
-                "name": "StatCollector"
+                "name": "SizeCollector"
               },
               "value": {
                 "type": "CallExpression",
@@ -316,10 +316,10 @@
                       }
                     },
                     "extra": {
-                      "rawValue": "./stat-collector",
-                      "raw": "'./stat-collector'"
+                      "rawValue": "./size-collector",
+                      "raw": "'./size-collector'"
                     },
-                    "value": "./stat-collector"
+                    "value": "./size-collector"
                   }
                 ]
               }
@@ -605,7 +605,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "PathCollector",
+      "value": "StatCollector",
       "start": 19,
       "end": 32,
       "loc": {
@@ -709,7 +709,7 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./path-collector",
+      "value": "./stat-collector",
       "start": 42,
       "end": 60,
       "loc": {
@@ -786,7 +786,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "SizeCollector",
+      "value": "PathCollector",
       "start": 65,
       "end": 78,
       "loc": {
@@ -890,7 +890,7 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./size-collector",
+      "value": "./path-collector",
       "start": 88,
       "end": 106,
       "loc": {
@@ -967,7 +967,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "StatCollector",
+      "value": "SizeCollector",
       "start": 111,
       "end": 124,
       "loc": {
@@ -1071,7 +1071,7 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./stat-collector",
+      "value": "./size-collector",
       "start": 134,
       "end": 152,
       "loc": {
@@ -1474,32 +1474,6 @@
     },
     {
       "type": {
-        "label": ",",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 255,
-      "end": 256,
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 44
-        },
-        "end": {
-          "line": 6,
-          "column": 45
-        }
-      }
-    },
-    {
-      "type": {
         "label": "}",
         "beforeExpr": false,
         "startsExpr": false,
@@ -1510,8 +1484,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 257,
-      "end": 258,
+      "start": 256,
+      "end": 257,
       "loc": {
         "start": {
           "line": 7,
@@ -1536,8 +1510,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 259,
-      "end": 259,
+      "start": 258,
+      "end": 258,
       "loc": {
         "start": {
           "line": 8,

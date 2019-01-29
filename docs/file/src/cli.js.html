@@ -43,23 +43,33 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/cli.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const { Command, flags } = require(&apos;@oclif/command&apos;)
 
-const StatCollectors = require(&apos;./stat-collectors&apos;)
-const StatWriter = require(&apos;./stat-writer&apos;)
-
+const {
+  SizeCollector,
+  TimestampCollector,
+  TypeCollector
+} = require(&apos;./stat-collectors&apos;)
+const StatWriter = require(&apos;.&apos;).StatWriter
 
 class DirectoryStat extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStat)
-    const { depth, exclude, minified, output, recursive, size, timestamp, type } = flags
+    const { depth, exclude, minified, output, size, timestamp, type } = flags
 
-    if (Number.isNaN(depth)) this.error(&apos;-d, --depth expected an integer, not NaN&apos;)
+    if (Number.isNaN(depth))
+      this.error(&apos;-d, --depth expected an integer, not NaN&apos;)
 
-    const statCollectors = []
-    if (size) statCollectors.push(new StatCollectors.SizeCollector())
-    if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())
-    if (type) statCollectors.push(new StatCollectors.TypeCollector())
+    const collectors = []
+    if (size) collectors.push(new SizeCollector())
+    if (timestamp) collectors.push(new TimestampCollector())
+    if (type) collectors.push(new TypeCollector())
 
-    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, recursive, statCollectors })
+    const statWriter = new StatWriter(args.dir, {
+      depth,
+      exclude,
+      minified,
+      output,
+      statCollectors: collectors
+    })
     try {
       await statWriter.export()
       this.log(&apos;Success&apos;)
@@ -73,58 +83,51 @@ DirectoryStat.description = `Composable directory statistics fetcher where &quot
 Fetch directory statistics then save to a JSON file in that directory
 `
 
-DirectoryStat.args = [
-  { name: &apos;dir&apos;, required: true, description: &apos;directory&apos; },
-]
+DirectoryStat.args = [{ name: &apos;dir&apos;, required: true, description: &apos;directory&apos; }]
 
 DirectoryStat.flags = {
   depth: flags.string({
     char: &apos;d&apos;,
-    description: &apos;how deep in directory tree statistics should be fetched. Unlimited if &lt; 0&apos;,
-    parse: (input) =&gt; parseInt(input),
+    description:
+      &apos;how deep in directory tree statistics should be fetched. Unlimited if &lt; 0&apos;,
+    default: -1,
+    parse: (input) =&gt; parseInt(input)
   }),
   help: flags.help({ char: &apos;h&apos; }),
   minified: flags.boolean({
     char: &apos;m&apos;,
     description: &apos;minify output&apos;,
     default: false,
-    allowNo: true,
+    allowNo: true
   }),
   output: flags.string({
     char: &apos;o&apos;,
     description: &apos;name of the output file&apos;,
-    default: &apos;.dirstat&apos;,
-  }),
-  recursive: flags.boolean({
-    char: &apos;r&apos;,
-    description: &apos;[DEPRECATED] get statistics of children recursively. This is overwritten by depth option&apos;,
-    default: true,
-    allowNo: true,
+    default: &apos;.dirstat&apos;
   }),
   version: flags.version({ char: &apos;v&apos; }),
   exclude: flags.string({
     char: &apos;x&apos;,
     description: &apos;ignore any children matching this glob&apos;,
     multiple: true,
-    default: [],
+    default: []
   }),
   size: flags.boolean({
     description: &apos;include size (in bytes)&apos;,
     default: true,
-    allowNo: true,
+    allowNo: true
   }),
   timestamp: flags.boolean({
     description: &apos;include timestamp&apos;,
     default: true,
-    allowNo: true,
+    allowNo: true
   }),
   type: flags.boolean({
     description: &apos;include type&apos;,
     default: true,
-    allowNo: true,
-  }),
+    allowNo: true
+  })
 }
-
 
 module.exports = DirectoryStat
 </code></pre>

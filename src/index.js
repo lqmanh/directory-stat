@@ -1,1 +1,3 @@
-module.exports.StatWriter = require('./stat-writer')
+module.exports = {
+  StatWriter: require('./stat-writer')
+}

@@ -2,7 +2,7 @@
   "name": "directory-stat",
   "description": "Composable directory statistics fetcher where \"fs\" is insufficient",
   "license": "MIT",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "author": "Luong Quang Manh @lqmanh",
   "main": "src/index.js",
   "bin": {

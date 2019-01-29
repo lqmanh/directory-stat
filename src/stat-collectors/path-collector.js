@@ -2,7 +2,10 @@ const path = require('path')
 
 const StatCollector = require('./stat-collector')
 
-module.exports = class PathCollector extends StatCollector {
+/**
+ * Collect path information
+ */
+class PathCollector extends StatCollector {
   constructor() {
     super('path')
   }
@@ -11,3 +14,5 @@ module.exports = class PathCollector extends StatCollector {
     return path.parse(path.resolve(pathStr))
   }
 }
+
+module.exports = PathCollector

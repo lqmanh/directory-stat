@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/cli.js",
-    "content": "const { Command, flags } = require('@oclif/command')\n\nconst StatCollectors = require('./stat-collectors')\nconst StatWriter = require('./stat-writer')\n\n\nclass DirectoryStat extends Command {\n  async run() {\n    const { args, flags } = this.parse(DirectoryStat)\n    const { depth, exclude, minified, output, recursive, size, timestamp, type } = flags\n\n    if (Number.isNaN(depth)) this.error('-d, --depth expected an integer, not NaN')\n\n    const statCollectors = []\n    if (size) statCollectors.push(new StatCollectors.SizeCollector())\n    if (timestamp) statCollectors.push(new StatCollectors.TimestampCollector())\n    if (type) statCollectors.push(new StatCollectors.TypeCollector())\n\n    const statWriter = new StatWriter(args.dir, { depth, exclude, minified, output, recursive, statCollectors })\n    try {\n      await statWriter.export()\n      this.log('Success')\n    } catch (err) {\n      this.error(err)\n    }\n  }\n}\n\nDirectoryStat.description = `Composable directory statistics fetcher where \"fs\" is insufficient\nFetch directory statistics then save to a JSON file in that directory\n`\n\nDirectoryStat.args = [\n  { name: 'dir', required: true, description: 'directory' },\n]\n\nDirectoryStat.flags = {\n  depth: flags.string({\n    char: 'd',\n    description: 'how deep in directory tree statistics should be fetched. Unlimited if < 0',\n    parse: (input) => parseInt(input),\n  }),\n  help: flags.help({ char: 'h' }),\n  minified: flags.boolean({\n    char: 'm',\n    description: 'minify output',\n    default: false,\n    allowNo: true,\n  }),\n  output: flags.string({\n    char: 'o',\n    description: 'name of the output file',\n    default: '.dirstat',\n  }),\n  recursive: flags.boolean({\n    char: 'r',\n    description: '[DEPRECATED] get statistics of children recursively. This is overwritten by depth option',\n    default: true,\n    allowNo: true,\n  }),\n  version: flags.version({ char: 'v' }),\n  exclude: flags.string({\n    char: 'x',\n    description: 'ignore any children matching this glob',\n    multiple: true,\n    default: [],\n  }),\n  size: flags.boolean({\n    description: 'include size (in bytes)',\n    default: true,\n    allowNo: true,\n  }),\n  timestamp: flags.boolean({\n    description: 'include timestamp',\n    default: true,\n    allowNo: true,\n  }),\n  type: flags.boolean({\n    description: 'include type',\n    default: true,\n    allowNo: true,\n  }),\n}\n\n\nmodule.exports = DirectoryStat\n",
+    "content": "const { Command, flags } = require('@oclif/command')\n\nconst {\n  SizeCollector,\n  TimestampCollector,\n  TypeCollector\n} = require('./stat-collectors')\nconst StatWriter = require('.').StatWriter\n\nclass DirectoryStat extends Command {\n  async run() {\n    const { args, flags } = this.parse(DirectoryStat)\n    const { depth, exclude, minified, output, size, timestamp, type } = flags\n\n    if (Number.isNaN(depth))\n      this.error('-d, --depth expected an integer, not NaN')\n\n    const collectors = []\n    if (size) collectors.push(new SizeCollector())\n    if (timestamp) collectors.push(new TimestampCollector())\n    if (type) collectors.push(new TypeCollector())\n\n    const statWriter = new StatWriter(args.dir, {\n      depth,\n      exclude,\n      minified,\n      output,\n      statCollectors: collectors\n    })\n    try {\n      await statWriter.export()\n      this.log('Success')\n    } catch (err) {\n      this.error(err)\n    }\n  }\n}\n\nDirectoryStat.description = `Composable directory statistics fetcher where \"fs\" is insufficient\nFetch directory statistics then save to a JSON file in that directory\n`\n\nDirectoryStat.args = [{ name: 'dir', required: true, description: 'directory' }]\n\nDirectoryStat.flags = {\n  depth: flags.string({\n    char: 'd',\n    description:\n      'how deep in directory tree statistics should be fetched. Unlimited if < 0',\n    default: -1,\n    parse: (input) => parseInt(input)\n  }),\n  help: flags.help({ char: 'h' }),\n  minified: flags.boolean({\n    char: 'm',\n    description: 'minify output',\n    default: false,\n    allowNo: true\n  }),\n  output: flags.string({\n    char: 'o',\n    description: 'name of the output file',\n    default: '.dirstat'\n  }),\n  version: flags.version({ char: 'v' }),\n  exclude: flags.string({\n    char: 'x',\n    description: 'ignore any children matching this glob',\n    multiple: true,\n    default: []\n  }),\n  size: flags.boolean({\n    description: 'include size (in bytes)',\n    default: true,\n    allowNo: true\n  }),\n  timestamp: flags.boolean({\n    description: 'include timestamp',\n    default: true,\n    allowNo: true\n  }),\n  type: flags.boolean({\n    description: 'include type',\n    default: true,\n    allowNo: true\n  })\n}\n\nmodule.exports = DirectoryStat\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/cli.js",
     "access": "public",
@@ -586,7 +586,7 @@
     "importPath": "directory-stat/src/cli.js",
     "importStyle": "DirectoryStat",
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 10,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -604,7 +604,7 @@
     "longname": "src/cli.js~DirectoryStat#run",
     "access": "public",
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 11,
     "undocument": true,
     "params": [],
     "return": null
@@ -613,7 +613,7 @@
     "__docId__": 51,
     "kind": "file",
     "name": "src/index.js",
-    "content": "module.exports = {\n  DirectoryStat: require('./cli'),\n  StatCollectors: require('./stat-collectors'),\n  StatWriter: require('./stat-writer'),\n}\n",
+    "content": "module.exports = {\n  StatWriter: require('./stat-writer')\n}\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/index.js",
     "access": "public",
@@ -624,7 +624,7 @@
     "__docId__": 52,
     "kind": "file",
     "name": "src/stat-collectors/index.js",
-    "content": "module.exports = {\n  PathCollector: require('./path-collector'),\n  SizeCollector: require('./size-collector'),\n  StatCollector: require('./stat-collector'),\n  TimestampCollector: require('./timestamp-collector'),\n  TypeCollector: require('./type-collector'),\n}\n",
+    "content": "module.exports = {\n  StatCollector: require('./stat-collector'),\n  PathCollector: require('./path-collector'),\n  SizeCollector: require('./size-collector'),\n  TimestampCollector: require('./timestamp-collector'),\n  TypeCollector: require('./type-collector')\n}\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/stat-collectors/index.js",
     "access": "public",
@@ -635,7 +635,7 @@
     "__docId__": 53,
     "kind": "file",
     "name": "src/stat-collectors/path-collector.js",
-    "content": "const path = require('path')\n\nconst StatCollector = require('./stat-collector')\n\n\nmodule.exports = class PathCollector extends StatCollector {\n  constructor() {\n    super('path')\n  }\n\n  async collect(pathStr, stat) {\n    return path.parse(path.resolve(pathStr))\n  }\n}\n",
+    "content": "const path = require('path')\n\nconst StatCollector = require('./stat-collector')\n\n/**\n * Collect path information\n */\nclass PathCollector extends StatCollector {\n  constructor() {\n    super('path')\n  }\n\n  async collect(pathStr) {\n    return path.parse(path.resolve(pathStr))\n  }\n}\n\nmodule.exports = PathCollector\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/stat-collectors/path-collector.js",
     "access": "public",
@@ -653,9 +653,8 @@
     "export": true,
     "importPath": "directory-stat/src/stat-collectors/path-collector.js",
     "importStyle": "PathCollector",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
+    "description": "Collect path information",
+    "lineNumber": 8,
     "interface": false,
     "extends": [
       "src/stat-collectors/stat-collector.js~StatCollector"
@@ -672,7 +671,7 @@
     "longname": "src/stat-collectors/path-collector.js~PathCollector#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 9,
     "undocument": true
   },
   {
@@ -686,17 +685,11 @@
     "longname": "src/stat-collectors/path-collector.js~PathCollector#collect",
     "access": "public",
     "description": null,
-    "lineNumber": 11,
+    "lineNumber": 13,
     "undocument": true,
     "params": [
       {
         "name": "pathStr",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "stat",
         "types": [
           "*"
         ]
@@ -712,7 +705,7 @@
     "__docId__": 57,
     "kind": "file",
     "name": "src/stat-collectors/size-collector.js",
-    "content": "const fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = {\n    stat: promisify(fsModule.stat),\n    readdir: promisify(fsModule.readdir),\n  }\n}\nconst path = require('path')\n\nconst StatCollector = require('./stat-collector')\n\n\nmodule.exports = class SizeCollector extends StatCollector {\n  constructor() {\n    super('size')\n  }\n\n  async collect(pathStr, stat) {\n    if (!stat) stat = await fs.stat(pathStr)\n    if (stat.isFile()) return stat.size\n    if (!stat.isDirectory()) return 0\n\n    const children = await fs.readdir(pathStr)\n    return children.reduce(async (accum, child) => {\n      const size = await this.collect(path.join(pathStr, child), null)\n      return (await accum) + size\n    }, 0)\n  }\n}\n",
+    "content": "const fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = {\n    stat: promisify(fsModule.stat),\n    readdir: promisify(fsModule.readdir)\n  }\n}\nconst path = require('path')\n\nconst StatCollector = require('./stat-collector')\n\n/**\n * Collect size information of files and directories\n */\nclass SizeCollector extends StatCollector {\n  constructor() {\n    super('size')\n  }\n\n  async collect(pathStr, stat) {\n    if (!stat) stat = await fs.stat(pathStr)\n    if (stat.isFile()) return stat.size\n    if (!stat.isDirectory()) return 0\n\n    const children = await fs.readdir(pathStr)\n    return children.reduce(async (accum, child) => {\n      const size = await this.collect(path.join(pathStr, child), null)\n      return (await accum) + size\n    }, 0)\n  }\n}\n\nmodule.exports = SizeCollector\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/stat-collectors/size-collector.js",
     "access": "public",
@@ -751,9 +744,8 @@
     "export": true,
     "importPath": "directory-stat/src/stat-collectors/size-collector.js",
     "importStyle": "SizeCollector",
-    "description": null,
-    "lineNumber": 15,
-    "undocument": true,
+    "description": "Collect size information of files and directories",
+    "lineNumber": 17,
     "interface": false,
     "extends": [
       "src/stat-collectors/stat-collector.js~StatCollector"
@@ -770,7 +762,7 @@
     "longname": "src/stat-collectors/size-collector.js~SizeCollector#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 18,
     "undocument": true
   },
   {
@@ -784,7 +776,7 @@
     "longname": "src/stat-collectors/size-collector.js~SizeCollector#collect",
     "access": "public",
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 22,
     "undocument": true,
     "params": [
       {
@@ -810,7 +802,7 @@
     "__docId__": 62,
     "kind": "file",
     "name": "src/stat-collectors/stat-collector.js",
-    "content": "/**\n * Statistics collector\n * @abstract\n */\nclass StatCollector {\n  /**\n   * Constructor\n   * @param {string} name - Name of the collector and property key when exporting staticstics\n   */\n  constructor(name) {\n    /**\n     * @private\n     * @type {string}\n     */\n    this.name = name\n  }\n\n  /**\n   * Get the name of the collector\n   * @return {string} Name of the collector\n   */\n  getName() {\n    return this.name\n  }\n\n  /**\n   * Collect statistics of an entity like the directory itself or its children\n   * @abstract\n   * @param {string} path - Path to the entity\n   * @param {fs.Stats} stat - Basic statistics of the entity\n   */\n  async collect(path, stat) {\n    // need overriding\n  }\n}\n\nmodule.exports = StatCollector\n",
+    "content": "/**\n * Statistics collector\n * @abstract\n */\nclass StatCollector {\n  /**\n   * Constructor\n   * @param {string} name - Name of the collector and statistics key when exporting\n   */\n  constructor(name) {\n    /**\n     * @private\n     * @type {string}\n     */\n    this.name = name\n  }\n\n  /**\n   * Get the name of the collector\n   * @return {string} Name of the collector\n   */\n  getName() {\n    return this.name\n  }\n\n  /**\n   * Collect statistics of an entity. That entity can be the directory itself or one of its children\n   * @abstract\n   * @param {string} path - Path to the entity\n   * @param {fs.Stats} stat - fs.Stats of the entity\n   * @return {Promise<*>} Result\n   */\n  async collect(path, stat) {}\n}\n\nmodule.exports = StatCollector\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/stat-collectors/stat-collector.js",
     "access": "public",
@@ -854,7 +846,7 @@
         "spread": false,
         "optional": false,
         "name": "name",
-        "description": "Name of the collector and property key when exporting staticstics"
+        "description": "Name of the collector and statistics key when exporting"
       }
     ]
   },
@@ -909,8 +901,8 @@
     "static": false,
     "longname": "src/stat-collectors/stat-collector.js~StatCollector#collect",
     "access": "public",
-    "description": "Collect statistics of an entity like the directory itself or its children",
-    "lineNumber": 32,
+    "description": "Collect statistics of an entity. That entity can be the directory itself or one of its children",
+    "lineNumber": 33,
     "params": [
       {
         "nullable": null,
@@ -930,17 +922,24 @@
         "spread": false,
         "optional": false,
         "name": "stat",
-        "description": "Basic statistics of the entity"
+        "description": "fs.Stats of the entity"
       }
     ],
-    "abstract": true,
-    "return": null
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<*>"
+      ],
+      "spread": false,
+      "description": "Result"
+    },
+    "abstract": true
   },
   {
     "__docId__": 68,
     "kind": "file",
     "name": "src/stat-collectors/timestamp-collector.js",
-    "content": "const StatCollector = require('./stat-collector')\n\n\nmodule.exports = class TimestampCollector extends StatCollector {\n  constructor() {\n    super('timestamp')\n  }\n\n  async collect(path, stat) {\n    return {\n      atime: stat.atime,\n      birthtime: stat.birthtime,\n      ctime: stat.ctime,\n      mtime: stat.mtime,\n    }\n  }\n}\n",
+    "content": "const StatCollector = require('./stat-collector')\n\n/**\n * Collect timestamp information (atime, birthtime, ctime, mtime)\n */\nclass TimestampCollector extends StatCollector {\n  constructor() {\n    super('timestamp')\n  }\n\n  async collect(path, stat) {\n    return {\n      atime: stat.atime,\n      birthtime: stat.birthtime,\n      ctime: stat.ctime,\n      mtime: stat.mtime\n    }\n  }\n}\n\nmodule.exports = TimestampCollector\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/stat-collectors/timestamp-collector.js",
     "access": "public",
@@ -958,9 +957,8 @@
     "export": true,
     "importPath": "directory-stat/src/stat-collectors/timestamp-collector.js",
     "importStyle": "TimestampCollector",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
+    "description": "Collect timestamp information (atime, birthtime, ctime, mtime)",
+    "lineNumber": 6,
     "interface": false,
     "extends": [
       "src/stat-collectors/stat-collector.js~StatCollector"
@@ -977,7 +975,7 @@
     "longname": "src/stat-collectors/timestamp-collector.js~TimestampCollector#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 7,
     "undocument": true
   },
   {
@@ -991,7 +989,7 @@
     "longname": "src/stat-collectors/timestamp-collector.js~TimestampCollector#collect",
     "access": "public",
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 11,
     "undocument": true,
     "params": [
       {
@@ -1017,7 +1015,7 @@
     "__docId__": 72,
     "kind": "file",
     "name": "src/stat-collectors/type-collector.js",
-    "content": "const StatCollector = require('./stat-collector')\n\n\nmodule.exports = class TypeCollector extends StatCollector {\n  constructor() {\n    super('type')\n  }\n\n  async collect(path, stat) {\n    if (stat.isBlockDevice()) return 'block device'\n    else if (stat.isCharacterDevice()) return 'character device'\n    else if (stat.isDirectory()) return 'directory'\n    else if (stat.isFIFO()) return 'fifo pipe'\n    else if (stat.isFile()) return 'file'\n    else if (stat.isSocket()) return 'socket'\n    else if (stat.isSymbolicLink()) return 'symbolic link'\n    return undefined\n  }\n}\n",
+    "content": "const StatCollector = require('./stat-collector')\n\n/**\n * Collect type information\n */\nclass TypeCollector extends StatCollector {\n  constructor() {\n    super('type')\n  }\n\n  async collect(path, stat) {\n    if (stat.isBlockDevice()) return 'block device'\n    else if (stat.isCharacterDevice()) return 'character device'\n    else if (stat.isDirectory()) return 'directory'\n    else if (stat.isFIFO()) return 'fifo pipe'\n    else if (stat.isFile()) return 'file'\n    else if (stat.isSocket()) return 'socket'\n    else if (stat.isSymbolicLink()) return 'symbolic link'\n    return undefined\n  }\n}\n\nmodule.exports = TypeCollector\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/stat-collectors/type-collector.js",
     "access": "public",
@@ -1035,9 +1033,8 @@
     "export": true,
     "importPath": "directory-stat/src/stat-collectors/type-collector.js",
     "importStyle": "TypeCollector",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
+    "description": "Collect type information",
+    "lineNumber": 6,
     "interface": false,
     "extends": [
       "src/stat-collectors/stat-collector.js~StatCollector"
@@ -1054,7 +1051,7 @@
     "longname": "src/stat-collectors/type-collector.js~TypeCollector#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 7,
     "undocument": true
   },
   {
@@ -1068,7 +1065,7 @@
     "longname": "src/stat-collectors/type-collector.js~TypeCollector#collect",
     "access": "public",
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 11,
     "undocument": true,
     "params": [
       {
@@ -1094,7 +1091,7 @@
     "__docId__": 76,
     "kind": "file",
     "name": "src/stat-writer.js",
-    "content": "const fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = {\n    stat: promisify(fsModule.stat),\n    writeFile: promisify(fsModule.writeFile),\n  }\n}\nconst path = require('path')\nconst fg = require('fast-glob')\n\nconst statCollectors = require('./stat-collectors')\n\n\n/**\n * Statistics writer\n */\nclass StatWriter {\n  /**\n   * Constructor\n   * @param {string} dir - Path to a directory\n   * @param {Object} options - Options\n   */\n  constructor(dir, options) {\n    /**\n     * @private\n     * @type {string}\n     */\n    this.dir = dir\n    /**\n     * @private\n     * @type {Object}\n     */\n    this.options = Object.assign({\n      minified: false,\n      output: '.dirstat',\n      exclude: [],\n      recursive: true,\n      statCollectors: [\n        new statCollectors.SizeCollector(),\n        new statCollectors.TimestampCollector(),\n        new statCollectors.TypeCollector()\n      ]\n    }, options)\n    if (this.options.depth === undefined) this.options.depth = this.options.recursive ? -1 : 0\n    if (this.options.depth < 0) this.options.depth = Infinity\n    /**\n     * @private\n     * @type {Array<StatCollector>}\n     */\n    this.statCollectors = [new statCollectors.PathCollector(), ...this.options.statCollectors]\n    /**\n     * @private\n     * @type {Object}\n     */\n    this.stat = {}\n  }\n\n  /**\n   * Get a directory's children statistics\n   * @private\n   * @param {string} pathStr - Path to a directory\n   * @param {number} depth - Depth\n   * @return {Promise<Array<Object>>} Directory's children statistics\n   */\n  async getStatChildren(pathStr, depth) {\n    const children = await fg('*', {\n      cwd: pathStr,\n      deep: 0,\n      dot: true,\n      followSymlinkedDirectories: false,\n      ignore: this.options.exclude,\n      onlyFiles: false,\n    })\n    const result = children.map(async (child) => await this.getStat(path.join(pathStr, child), depth))\n    return Promise.all(result)\n  }\n\n  /**\n   * Get a directory statistics\n   * @private\n   * @param {string} pathStr - Path to a directory\n   * @param {number} depth - Depth\n   * @return {Promise<Object>} Directory statistics\n   */\n  async getStat(pathStr, depth) {\n    const result = {}\n    const stat = await fs.stat(pathStr)\n    await Promise.all(\n      this.statCollectors.map(async (collector) => result[collector.getName()] = await collector.collect(pathStr, stat))\n      )\n    if (depth > 0 && stat.isDirectory()) result.children = await this.getStatChildren(pathStr, depth - 1)\n    return result\n  }\n\n  /**\n   * Get a directory statistics and write to a file\n   */\n  async export() {\n    try {\n      this.stat = await this.getStat(this.dir, this.options.depth)\n      await fs.writeFile(\n        path.join(this.dir, this.options.output),\n        JSON.stringify(this.stat, null, this.options.minified ? 0 : 2)\n      )\n    } catch (err) {\n      throw err\n    }\n  }\n}\n\nmodule.exports = StatWriter\n",
+    "content": "const fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = {\n    stat: promisify(fsModule.stat),\n    writeFile: promisify(fsModule.writeFile)\n  }\n}\nconst path = require('path')\nconst fg = require('fast-glob')\n\nconst {\n  PathCollector,\n  SizeCollector,\n  TimestampCollector,\n  TypeCollector\n} = require('./stat-collectors')\n\n/**\n * Statistics writer\n */\nclass StatWriter {\n  /**\n   * Constructor\n   * @param {string} dir - Path to a directory\n   * @param {Object} options - Options\n   */\n  constructor(dir, options) {\n    /**\n     * @private\n     * @type {string}\n     */\n    this.dir = dir\n    /**\n     * @private\n     * @type {Object}\n     */\n    this.options = Object.assign(\n      {\n        depth: -1,\n        exclude: [],\n        minified: false,\n        output: '.dirstat',\n        statCollectors: [\n          new SizeCollector(),\n          new TimestampCollector(),\n          new TypeCollector()\n        ]\n      },\n      options\n    )\n    if (this.options.depth < 0) this.options.depth = Infinity\n    /**\n     * @private\n     * @type {Array<StatCollector>}\n     */\n    this.statCollectors = [new PathCollector(), ...this.options.statCollectors]\n    /**\n     * Final result\n     * @private\n     * @type {Object}\n     */\n    this.stat = {}\n  }\n\n  /**\n   * Get a directory's children statistics\n   * @private\n   * @param {string} pathStr - Path to a directory\n   * @param {number} depth - Depth\n   * @return {Promise<Array<Object>>} Directory's children statistics\n   */\n  async getStatChildren(pathStr, depth) {\n    const children = await fg('*', {\n      cwd: pathStr,\n      deep: 0,\n      dot: true,\n      followSymlinkedDirectories: false,\n      ignore: this.options.exclude,\n      onlyFiles: false\n    })\n    const result = children.map(\n      async (child) => await this.getStat(path.join(pathStr, child), depth)\n    )\n    return Promise.all(result)\n  }\n\n  /**\n   * Get a directory statistics\n   * @private\n   * @param {string} pathStr - Path to a directory\n   * @param {number} depth - Depth\n   * @return {Promise<Object>} Directory statistics\n   */\n  async getStat(pathStr, depth) {\n    const result = {}\n    const stat = await fs.stat(pathStr)\n    await Promise.all(\n      this.statCollectors.map(\n        async (collector) =>\n          (result[collector.getName()] = await collector.collect(pathStr, stat))\n      )\n    )\n    if (depth > 0 && stat.isDirectory())\n      result.children = await this.getStatChildren(pathStr, depth - 1)\n    return result\n  }\n\n  /**\n   * Get a directory statistics then write them to a file\n   */\n  async export() {\n    try {\n      this.stat = await this.getStat(this.dir, this.options.depth)\n      await fs.writeFile(\n        path.join(this.dir, this.options.output),\n        JSON.stringify(this.stat, null, this.options.minified ? 0 : 2)\n      )\n    } catch (err) {\n      throw err\n    }\n  }\n}\n\nmodule.exports = StatWriter\n",
     "static": true,
     "longname": "/home/light/Projects/directory-stat/src/stat-writer.js",
     "access": "public",
@@ -1134,7 +1131,7 @@
     "importPath": "directory-stat/src/stat-writer.js",
     "importStyle": "StatWriter",
     "description": "Statistics writer",
-    "lineNumber": 19,
+    "lineNumber": 23,
     "interface": false
   },
   {
@@ -1148,7 +1145,7 @@
     "longname": "src/stat-writer.js~StatWriter#constructor",
     "access": "public",
     "description": "Constructor",
-    "lineNumber": 25,
+    "lineNumber": 29,
     "params": [
       {
         "nullable": null,
@@ -1181,7 +1178,7 @@
     "longname": "src/stat-writer.js~StatWriter#dir",
     "access": "private",
     "description": "",
-    "lineNumber": 30,
+    "lineNumber": 34,
     "type": {
       "nullable": null,
       "types": [
@@ -1200,7 +1197,7 @@
     "longname": "src/stat-writer.js~StatWriter#options",
     "access": "private",
     "description": "",
-    "lineNumber": 35,
+    "lineNumber": 39,
     "type": {
       "nullable": null,
       "types": [
@@ -1219,7 +1216,7 @@
     "longname": "src/stat-writer.js~StatWriter#statCollectors",
     "access": "private",
     "description": "",
-    "lineNumber": 52,
+    "lineNumber": 58,
     "type": {
       "nullable": null,
       "types": [
@@ -1237,8 +1234,8 @@
     "static": false,
     "longname": "src/stat-writer.js~StatWriter#stat",
     "access": "private",
-    "description": "",
-    "lineNumber": 57,
+    "description": "Final result",
+    "lineNumber": 64,
     "type": {
       "nullable": null,
       "types": [
@@ -1259,7 +1256,7 @@
     "longname": "src/stat-writer.js~StatWriter#getStatChildren",
     "access": "private",
     "description": "Get a directory's children statistics",
-    "lineNumber": 67,
+    "lineNumber": 74,
     "params": [
       {
         "nullable": null,
@@ -1302,7 +1299,7 @@
     "longname": "src/stat-writer.js~StatWriter#getStat",
     "access": "private",
     "description": "Get a directory statistics",
-    "lineNumber": 87,
+    "lineNumber": 96,
     "params": [
       {
         "nullable": null,
@@ -1344,14 +1341,14 @@
     "static": false,
     "longname": "src/stat-writer.js~StatWriter#export",
     "access": "public",
-    "description": "Get a directory statistics and write to a file",
-    "lineNumber": 100,
+    "description": "Get a directory statistics then write them to a file",
+    "lineNumber": 113,
     "params": [],
     "return": null
   },
   {
     "kind": "index",
-    "content": "[![License](https://img.shields.io/npm/l/directory-stat.svg)](https://github.com/lqmanh/directory-stat)\n[![Version](https://img.shields.io/npm/v/directory-stat.svg)](https://npmjs.org/package/directory-stat)\n\n# directory-stat\n> Composable directory statistics fetcher where \"fs\" is insufficient\n\n## INSTALLATION\n*Notice:*\n- 0.6.x is the latest stable branch.\n- 0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.\n\n### Requirements\n- Node.js >= v8.0.0\n\n### Instructions\n*Notice:*\n- To use **directory-stat** as a standalone CLI app, you should install the package globally.\n- To use all advanced features like custom statistics collectors, you need to use this package as a library.\n\n#### With `npm`\n```\n$ npm install directory-stat\n```\nor\n```\n$ npm install -g directory-stat\n```\n\n#### With `yarn`\n```\n$ yarn add directory-stat\n```\nor\n```\n$ yarn global add directory-stat\n```\n\n## USAGE\n### As a Standalone CLI App\nUse `-h, --help` flag to see more:\n```bash\n$ directory-stat --help\nComposable directory statistics fetcher where \"fs\" is insufficient\n\nUSAGE\n  $ directory-stat DIR\n\nARGUMENTS\n  DIR  directory\n\nOPTIONS\n  -d, --depth=depth      how deep in directory tree statistics should be fetched.\n                         Unlimited if < 0\n\n  -h, --help             show CLI help\n\n  -m, --[no-]minified    minify output\n\n  -o, --output=output    [default: .dirstat] name of the output file\n\n  -r, --[no-]recursive   [DEPRECATED] get statistics of children recursively.\n                         This is overwritten by depth option\n\n  -v, --version          show CLI version\n\n  -x, --exclude=exclude  [default: ] ignore any children matching this glob\n\n  --[no-]size            include size (in bytes)\n\n  --[no-]timestamp       include timestamp\n\n  --[no-]type            include type\n\nDESCRIPTION\n  Fetch directory statistics then save to a JSON file in that directory\n```\n\n### As a Library\nExample:\n```javascript\nconst fsModule = require('fs')\nlet fs = fsModule.promises\nif (!fs) {\n  const { promisify } = require('util')\n  fs = { readFile: promisify(fsModule.readFile) }\n}\nconst path = require('path')\n\nconst { StatWriter } = require('directory-stat')\nconst { StatCollector } = require('directory-stat/stat-collectors')\n\n\nclass FileContentCollector extends StatCollector {\n  constructor() {\n    super('content')\n  }\n\n  async collect(pathStr, stat) {\n    if (!stat.isFile()) return undefined\n    return fs.readFile(pathStr, { encoding: 'utf8' })\n  }\n}\n\nconst statWriter = new StatWriter(\n  path.join(__dirname, 'example'),\n  {\n    depth: 1,\n    exclude: ['.dirstat', 'dirstat.json'],\n    output: 'dirstat.json',\n    statCollectors: [new FileContentCollector()]\n  },\n)\nstatWriter.export().then(_ => console.log('Done'))\n```\n\n## CHANGELOG\nRead more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).\n\n## TODO\nRead more [here](https://github.com/lqmanh/directory-stat/blob/master/TODO.md).\n",
+    "content": "[![](https://img.shields.io/github/license/lqmanh/directory-stat.svg?style=flat-square)](https://github.com/lqmanh/directory-stat)\n[![](https://img.shields.io/npm/v/directory-stat/latest.svg?style=flat-square)](https://www.npmjs.com/package/@albert-team/spiderman)\n\n# directory-stat\n\n> Composable directory statistics fetcher where \"fs\" is insufficient\n\n## INSTALLATION\n\n### Requirements\n\n- Node.js >= v8.0.0 (Node.js >= v10.0.0 recommended)\n\n### Instructions\n\n_Notice:_\n\n- To use **directory-stat** as a standalone CLI app, you should install the package globally.\n- To use all advanced features like custom statistics collectors, you need to use **directory-stat** as a library.\n\n#### With `npm`\n\n```\n$ npm install directory-stat\n```\n\nor\n\n```\n$ npm install -g directory-stat\n```\n\n#### With `yarn`\n\n```\n$ yarn add directory-stat\n```\n\nor\n\n```\n$ yarn global add directory-stat\n```\n\n## USAGE\n\n### As a Standalone CLI App\n\nUse `-h, --help` flag to see more:\n\n```bash\n$ directory-stat --help\nComposable directory statistics fetcher where \"fs\" is insufficient\n\nUSAGE\n  $ directory-stat DIR\n\nARGUMENTS\n  DIR  directory\n\nOPTIONS\n  -d, --depth=depth      [default: -1] how deep in directory tree statistics\n                         should be fetched. Unlimited if < 0\n\n  -h, --help             show CLI help\n\n  -m, --[no-]minified    minify output\n\n  -o, --output=output    [default: .dirstat] name of the output file\n\n  -v, --version          show CLI version\n\n  -x, --exclude=exclude  [default: ] ignore any children matching this glob\n\n  --[no-]size            include size (in bytes)\n\n  --[no-]timestamp       include timestamp\n\n  --[no-]type            include type\n\nDESCRIPTION\n  Fetch directory statistics then save to a JSON file in that directory\n```\n\n### As a Library\n\nExample:\n\n```javascript\nconst fs = require('fs').promises // Node.js >= 10.0.0\nconst path = require('path')\n\nconst { StatWriter } = require('directory-stat')\nconst { StatCollector } = require('directory-stat/stat-collectors')\n\nclass FileContentCollector extends StatCollector {\n  constructor() {\n    super('content')\n  }\n\n  async collect(pathStr, stat) {\n    if (!stat.isFile()) return undefined\n    return fs.readFile(pathStr, { encoding: 'utf8' })\n  }\n}\n\nconst statWriter = new StatWriter(path.join(__dirname, 'example'), {\n  depth: 1,\n  exclude: ['.dirstat', 'dirstat.json'],\n  output: 'dirstat.json',\n  statCollectors: [new FileContentCollector()]\n})\nstatWriter.export().then((_) => console.log('Done'))\n```\n\n## CHANGELOG\n\nRead more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).\n\n## TODO\n\nRead more [here](https://github.com/lqmanh/directory-stat/blob/master/TODO.md).\n",
     "longname": "/home/light/Projects/directory-stat/README.md",
     "name": "./README.md",
     "static": true,
@@ -1359,7 +1356,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"directory-stat\",\n  \"description\": \"Composable directory statistics fetcher where \\\"fs\\\" is insufficient\",\n  \"license\": \"MIT\",\n  \"version\": \"0.6.0\",\n  \"author\": \"Luong Quang Manh @lqmanh\",\n  \"main\": \"dist/index.js\",\n  \"bin\": {\n    \"directory-stat\": \"./bin/run\"\n  },\n  \"scripts\": {\n    \"build:docs\": \"esdoc\",\n    \"build\": \"parcel build -t node src/index.js\"\n  },\n  \"dependencies\": {\n    \"@oclif/command\": \"^1.5.8\",\n    \"@oclif/config\": \"^1.10.2\",\n    \"@oclif/plugin-help\": \"^2.1.4\",\n    \"fast-glob\": \"^2.2.4\"\n  },\n  \"optionalDependencies\": {\n    \"@oclif/plugin-warn-if-update-available\": \"^1.5.4\"\n  },\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^5.12.0\",\n    \"parcel-bundler\": \"^1.11.0\"\n  },\n  \"engines\": {\n    \"node\": \">=8.0.0\"\n  },\n  \"files\": [\n    \"/*.js\",\n    \"/bin\",\n    \"/dist\"\n  ],\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git://github.com/lqmanh/directory-stat.git\"\n  },\n  \"bugs\": \"https://github.com/lqmanh/directory-stat/issues\",\n  \"homepage\": \"https://github.com/lqmanh/directory-stat\",\n  \"keywords\": [\n    \"dir\",\n    \"directory\",\n    \"stat\",\n    \"statistics\"\n  ],\n  \"oclif\": {\n    \"bin\": \"directory-stat\",\n    \"plugins\": [\n      \"@oclif/plugin-help\",\n      \"@oclif/plugin-warn-if-update-available\"\n    ],\n    \"warn-if-update-available\": {\n      \"timeoutInDays\": 7\n    }\n  }\n}\n",
+    "content": "{\n  \"name\": \"directory-stat\",\n  \"description\": \"Composable directory statistics fetcher where \\\"fs\\\" is insufficient\",\n  \"license\": \"MIT\",\n  \"version\": \"1.0.0\",\n  \"author\": \"Luong Quang Manh @lqmanh\",\n  \"main\": \"src/index.js\",\n  \"bin\": {\n    \"directory-stat\": \"./bin/run\"\n  },\n  \"scripts\": {\n    \"build:docs\": \"esdoc\"\n  },\n  \"dependencies\": {\n    \"@oclif/command\": \"^1.5.8\",\n    \"@oclif/config\": \"^1.10.2\",\n    \"@oclif/plugin-help\": \"^2.1.4\",\n    \"fast-glob\": \"^2.2.4\"\n  },\n  \"optionalDependencies\": {\n    \"@oclif/plugin-warn-if-update-available\": \"^1.5.4\"\n  },\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\n    \"esdoc-node\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^5.12.0\"\n  },\n  \"engines\": {\n    \"node\": \">=8.0.0\"\n  },\n  \"files\": [\n    \"/*.js\",\n    \"/bin\",\n    \"/dist\"\n  ],\n  \"repository\": \"github:lqmanh/directory-stat\",\n  \"bugs\": \"https://github.com/lqmanh/directory-stat/issues\",\n  \"homepage\": \"https://github.com/lqmanh/directory-stat\",\n  \"keywords\": [\n    \"dir\",\n    \"directory\",\n    \"stat\",\n    \"statistics\"\n  ],\n  \"oclif\": {\n    \"bin\": \"directory-stat\",\n    \"plugins\": [\n      \"@oclif/plugin-help\",\n      \"@oclif/plugin-warn-if-update-available\"\n    ],\n    \"warn-if-update-available\": {\n      \"timeoutInDays\": 7\n    }\n  }\n}\n",
     "longname": "/home/light/Projects/directory-stat/package.json",
     "name": "package.json",
     "static": true,

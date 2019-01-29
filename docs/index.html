@@ -40,23 +40,18 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><p><a href="https://github.com/lqmanh/directory-stat"><img src="https://img.shields.io/npm/l/directory-stat.svg" alt="License"></a>
-<a href="https://npmjs.org/package/directory-stat"><img src="https://img.shields.io/npm/v/directory-stat.svg" alt="Version"></a></p>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><p><a href="https://github.com/lqmanh/directory-stat"><img src="https://img.shields.io/github/license/lqmanh/directory-stat.svg?style=flat-square" alt=""></a>
+<a href="https://www.npmjs.com/package/@albert-team/spiderman"><img src="https://img.shields.io/npm/v/directory-stat/latest.svg?style=flat-square" alt=""></a></p>
 <h1 id="directory-stat">directory-stat</h1><blockquote>
 <p>Composable directory statistics fetcher where &quot;fs&quot; is insufficient</p>
 </blockquote>
-<h2 id="installation">INSTALLATION</h2><p><em>Notice:</em></p>
-<ul>
-<li>0.6.x is the latest stable branch.</li>
-<li>0.1.x is early-access branch. Hence, the functionalities and API are likely to have breaking changes, even in minor and patch releases.</li>
-</ul>
-<h3 id="requirements">Requirements</h3><ul>
-<li>Node.js &gt;= v8.0.0</li>
+<h2 id="installation">INSTALLATION</h2><h3 id="requirements">Requirements</h3><ul>
+<li>Node.js &gt;= v8.0.0 (Node.js &gt;= v10.0.0 recommended)</li>
 </ul>
 <h3 id="instructions">Instructions</h3><p><em>Notice:</em></p>
 <ul>
 <li>To use <strong>directory-stat</strong> as a standalone CLI app, you should install the package globally.</li>
-<li>To use all advanced features like custom statistics collectors, you need to use this package as a library.</li>
+<li>To use all advanced features like custom statistics collectors, you need to use <strong>directory-stat</strong> as a library.</li>
 </ul>
 <h4 id="with--code-npm--code-">With <code>npm</code></h4><pre><code><code class="source-code prettyprint">$ npm install directory-stat</code>
 </code></pre><p>or</p>
@@ -75,17 +70,14 @@ ARGUMENTS
   DIR  directory
 
 OPTIONS
-  -d, --depth=depth      how deep in directory tree statistics should be fetched.
-                         Unlimited if &lt; 0
+  -d, --depth=depth      [default: -1] how deep in directory tree statistics
+                         should be fetched. Unlimited if &lt; 0
 
   -h, --help             show CLI help
 
   -m, --[no-]minified    minify output
 
   -o, --output=output    [default: .dirstat] name of the output file
-
-  -r, --[no-]recursive   [DEPRECATED] get statistics of children recursively.
-                         This is overwritten by depth option
 
   -v, --version          show CLI version
 
@@ -101,17 +93,11 @@ DESCRIPTION
   Fetch directory statistics then save to a JSON file in that directory</code>
 </code></pre>
 <h3 id="as-a-library">As a Library</h3><p>Example:</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const fsModule = require(&apos;fs&apos;)
-let fs = fsModule.promises
-if (!fs) {
-  const { promisify } = require(&apos;util&apos;)
-  fs = { readFile: promisify(fsModule.readFile) }
-}
+<pre><code class="lang-javascript"><code class="source-code prettyprint">const fs = require(&apos;fs&apos;).promises // Node.js &gt;= 10.0.0
 const path = require(&apos;path&apos;)
 
 const { StatWriter } = require(&apos;directory-stat&apos;)
 const { StatCollector } = require(&apos;directory-stat/stat-collectors&apos;)
-
 
 class FileContentCollector extends StatCollector {
   constructor() {
@@ -124,16 +110,13 @@ class FileContentCollector extends StatCollector {
   }
 }
 
-const statWriter = new StatWriter(
-  path.join(__dirname, &apos;example&apos;),
-  {
-    depth: 1,
-    exclude: [&apos;.dirstat&apos;, &apos;dirstat.json&apos;],
-    output: &apos;dirstat.json&apos;,
-    statCollectors: [new FileContentCollector()]
-  },
-)
-statWriter.export().then(_ =&gt; console.log(&apos;Done&apos;))</code>
+const statWriter = new StatWriter(path.join(__dirname, &apos;example&apos;), {
+  depth: 1,
+  exclude: [&apos;.dirstat&apos;, &apos;dirstat.json&apos;],
+  output: &apos;dirstat.json&apos;,
+  statCollectors: [new FileContentCollector()]
+})
+statWriter.export().then((_) =&gt; console.log(&apos;Done&apos;))</code>
 </code></pre>
 <h2 id="changelog">CHANGELOG</h2><p>Read more <a href="https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md">here</a>.</p>
 <h2 id="todo">TODO</h2><p>Read more <a href="https://github.com/lqmanh/directory-stat/blob/master/TODO.md">here</a>.</p>

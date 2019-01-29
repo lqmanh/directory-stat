@@ -11,7 +11,10 @@ const path = require('path')
 
 const StatCollector = require('./stat-collector')
 
-module.exports = class SizeCollector extends StatCollector {
+/**
+ * Collect size information of files and directories
+ */
+class SizeCollector extends StatCollector {
   constructor() {
     super('size')
   }
@@ -28,3 +31,5 @@ module.exports = class SizeCollector extends StatCollector {
     }, 0)
   }
 }
+
+module.exports = SizeCollector

@@ -47,15 +47,17 @@ if (!fs) {
   const { promisify } = require(&apos;util&apos;)
   fs = {
     stat: promisify(fsModule.stat),
-    readdir: promisify(fsModule.readdir),
+    readdir: promisify(fsModule.readdir)
   }
 }
 const path = require(&apos;path&apos;)
 
 const StatCollector = require(&apos;./stat-collector&apos;)
 
-
-module.exports = class SizeCollector extends StatCollector {
+/**
+ * Collect size information of files and directories
+ */
+class SizeCollector extends StatCollector {
   constructor() {
     super(&apos;size&apos;)
   }
@@ -72,6 +74,8 @@ module.exports = class SizeCollector extends StatCollector {
     }, 0)
   }
 }
+
+module.exports = SizeCollector
 </code></pre>
 
 </div>
