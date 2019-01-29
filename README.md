@@ -1,5 +1,5 @@
 [![](https://img.shields.io/github/license/lqmanh/directory-stat.svg?style=flat-square)](https://github.com/lqmanh/directory-stat)
-[![](https://img.shields.io/npm/v/directory-stat/latest.svg?style=flat-square)](https://www.npmjs.com/package/@albert-team/spiderman)
+[![](https://img.shields.io/npm/v/directory-stat.svg?style=flat-square)](https://www.npmjs.com/package/directory-stat)
 
 # directory-stat
 
@@ -9,14 +9,20 @@
 
 ### Requirements
 
-- Node.js >= v8.0.0 (Node.js >= v10.0.0 recommended)
+#### Minimum
+
+- Node.js >= v8.0.0
+
+#### Recommended
+
+- Node.js >= v10.0.0
 
 ### Instructions
 
 _Notice:_
 
 - To use **directory-stat** as a standalone CLI app, you should install the package globally.
-- To use all advanced features like custom statistics collectors, you need to use **directory-stat** as a library.
+- To take advantages of all advanced features like custom statistics collectors, you need to use **directory-stat** as a library.
 
 #### With `npm`
 
