@@ -1,8 +1,11 @@
 const { Command, flags } = require('@oclif/command')
 
-const statCollectors = require('./stat-collectors')
-const { SizeCollector, TimestampCollector, TypeCollector } = statCollectors
-const StatWriter = require('./stat-writer')
+const {
+  SizeCollector,
+  TimestampCollector,
+  TypeCollector
+} = require('./stat-collectors')
+const StatWriter = require('.').StatWriter
 
 class DirectoryStat extends Command {
   async run() {

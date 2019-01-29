@@ -1,1 +1,1 @@
-module.exports = require('./dist/stat-collectors')
+module.exports = require('./src/stat-collectors')

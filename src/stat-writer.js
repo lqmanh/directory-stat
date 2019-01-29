@@ -10,13 +10,12 @@ if (!fs) {
 const path = require('path')
 const fg = require('fast-glob')
 
-const statCollectors = require('./stat-collectors')
 const {
   PathCollector,
   SizeCollector,
   TimestampCollector,
   TypeCollector
-} = statCollectors
+} = require('./stat-collectors')
 
 /**
  * Statistics writer
