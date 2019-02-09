@@ -116,8 +116,12 @@ const statWriter = new StatWriter(path.join(__dirname, 'example'), {
   output: 'dirstat.json',
   statCollectors: [new FileContentCollector()]
 })
-statWriter.export().then((_) => console.log('Done'))
+statWriter.export().then(() => console.log('Done'))
 ```
+
+## DOCUMENTATION
+
+Read more [here](https://lqmanh.github.io/directory-stat).
 
 ## CHANGELOG
 
