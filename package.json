@@ -12,20 +12,20 @@
     "build:docs": "esdoc"
   },
   "dependencies": {
-    "@oclif/command": "^1.5.8",
-    "@oclif/config": "^1.10.2",
-    "@oclif/plugin-help": "^2.1.4",
+    "@oclif/command": "^1.5.11",
+    "@oclif/config": "^1.12.9",
+    "@oclif/plugin-help": "^2.1.6",
     "fast-glob": "^2.2.4"
   },
   "optionalDependencies": {
-    "@oclif/plugin-warn-if-update-available": "^1.5.4"
+    "@oclif/plugin-warn-if-update-available": "^1.7.0"
   },
   "devDependencies": {
     "esdoc": "^1.1.0",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
     "esdoc-node": "^1.0.4",
     "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^5.12.0"
+    "eslint": "^5.15.0"
   },
   "engines": {
     "node": ">=8.0.0"
