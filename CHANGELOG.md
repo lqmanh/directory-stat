@@ -2,10 +2,14 @@
 
 ## Stable Branch
 
+### v1.0.1
+
+- FIXED: Fix `files` field in package.json
+
 ### v1.0.0
 
-- BREAKING CHANGED: Remove `-r, --recursive` option
-- BREAKING CHANGED: Remove DirectoryStat, StatCollectors from main entry point
+- CHANGED: Remove `-r, --recursive` option
+- CHANGED: Remove `DirectoryStat`, `StatCollectors` from main entry point
 - CHANGED: Remove Parcel (building process)
 
 ### v0.6.0
@@ -26,14 +30,14 @@
 ### v0.4.0
 
 - NEW: Extend support for Node.js >= 8.0.0
-- CHANGED: Integrate PathCollector into StatWriter and cannot be removed
+- CHANGED: Integrate `PathCollector` into `StatWriter` and cannot be removed
 
 ### v0.3.0
 
 - NEW: Add `-o, --output` option
 - NEW: Add `-d, --depth` option
 - CHANGED: Deprecate `-r, --recursive` option
-- CHANGED: StatWriter now has the same default values as in CLI
+- CHANGED: `StatWriter` now has the same default values as in CLI
 
 ### v0.2.1
 
