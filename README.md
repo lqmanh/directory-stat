@@ -119,10 +119,6 @@ const statWriter = new StatWriter(path.join(__dirname, 'example'), {
 statWriter.export().then(() => console.log('Done'))
 ```
 
-## DOCUMENTATION
-
-Read more [here](https://lqmanh.github.io/directory-stat).
-
 ## CHANGELOG
 
 Read more [here](https://github.com/lqmanh/directory-stat/blob/master/CHANGELOG.md).

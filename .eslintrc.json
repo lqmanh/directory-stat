@@ -3,7 +3,7 @@
     "es6": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended"],
   "parserOptions": {
     "ecmaVersion": 2017,
     "ecmaFeatures": {
@@ -11,7 +11,6 @@
     }
   },
   "rules": {
-    "eqeqeq": ["error", "smart"],
     "no-console": "off"
   }
 }
