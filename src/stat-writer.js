@@ -76,7 +76,7 @@ class StatWriter {
       cwd: pathStr,
       deep: 0,
       dot: true,
-      followSymlinkedDirectories: false,
+      followSymbolicLinks: false,
       ignore: this.options.exclude,
       onlyFiles: false
     })
@@ -111,15 +111,11 @@ class StatWriter {
    * Get a directory statistics then write them to a file
    */
   async export() {
-    try {
-      this.stat = await this.getStat(this.dir, this.options.depth)
-      await fs.writeFile(
-        path.join(this.dir, this.options.output),
-        JSON.stringify(this.stat, null, this.options.minified ? 0 : 2)
-      )
-    } catch (err) {
-      throw err
-    }
+    this.stat = await this.getStat(this.dir, this.options.depth)
+    fs.writeFile(
+      path.join(this.dir, this.options.output),
+      JSON.stringify(this.stat, null, this.options.minified ? 0 : 2)
+    )
   }
 }
 
