@@ -9,13 +9,7 @@
 
 ### Requirements
 
-#### Minimum
-
 - Node.js >= v8.0.0
-
-#### Recommended
-
-- Node.js >= v10.0.0
 
 ### Instructions
 
