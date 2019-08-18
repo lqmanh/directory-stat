@@ -3,16 +3,16 @@
   "description": "Composable directory statistics fetcher where \"fs\" is insufficient",
   "license": "MIT",
   "author": "Luong Quang Manh @lqmanh",
-  "version": "1.0.1",
-  "main": "src/index.js",
-  "bin": {
-    "directory-stat": "./bin/run"
-  },
+  "version": "1.0.2",
   "files": [
     "/*.js",
     "/bin",
     "/src"
   ],
+  "main": "src/index.js",
+  "bin": {
+    "directory-stat": "./bin/run"
+  },
   "scripts": {},
   "dependencies": {
     "@oclif/command": "^1.5.18",

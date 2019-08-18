@@ -2,6 +2,12 @@
 
 ## Stable Branch
 
+### v1.0.2
+
+#### PATCHES
+
+- Upgrade dependencies to fix potential security vulnerabilities
+
 ### v1.0.1
 
 #### PATCHES
