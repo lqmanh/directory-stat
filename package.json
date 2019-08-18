@@ -3,7 +3,7 @@
   "description": "Composable directory statistics fetcher where \"fs\" is insufficient",
   "license": "MIT",
   "author": "Luong Quang Manh @lqmanh",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "files": [
     "/*.js",
     "/bin",

@@ -2,6 +2,12 @@
 
 ## Stable Branch
 
+### v1.0.3
+
+#### PATCHES
+
+- Fix fast-glob v3 breaking changes
+
 ### v1.0.2
 
 #### PATCHES
