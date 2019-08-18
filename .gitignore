@@ -81,3 +81,6 @@ typings/
 
 # Build output
 dist
+
+# Lock files
+*.lock
