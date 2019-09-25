@@ -1,32 +1,27 @@
 const { Command, flags } = require('@oclif/command')
-
-const {
-  SizeCollector,
-  TimestampCollector,
-  TypeCollector
-} = require('./stat-collectors')
-const StatWriter = require('.').StatWriter
+const { StatWriter } = require('.')
+const { SizeCollector, TimestampCollector, TypeCollector } = require('./stat-collectors')
 
 class DirectoryStat extends Command {
   async run() {
     const { args, flags } = this.parse(DirectoryStat)
     const { depth, exclude, minified, output, size, timestamp, type } = flags
 
-    if (Number.isNaN(depth))
-      this.error('-d, --depth expected an integer, not NaN')
+    if (Number.isNaN(depth)) this.error('-d, --depth expected an integer')
 
-    const collectors = []
-    if (size) collectors.push(new SizeCollector())
-    if (timestamp) collectors.push(new TimestampCollector())
-    if (type) collectors.push(new TypeCollector())
+    const statCollectors = []
+    if (size) statCollectors.push(new SizeCollector())
+    if (timestamp) statCollectors.push(new TimestampCollector())
+    if (type) statCollectors.push(new TypeCollector())
 
     const statWriter = new StatWriter(args.dir, {
       depth,
       exclude,
       minified,
       output,
-      statCollectors: collectors
+      statCollectors
     })
+
     try {
       await statWriter.export()
       this.log('Success')
@@ -37,7 +32,7 @@ class DirectoryStat extends Command {
 }
 
 DirectoryStat.description = `Composable directory statistics fetcher where "fs" is insufficient
-Fetch directory statistics then save to a JSON file in that directory
+Fetch directory statistics then write to a JSON file
 `
 
 DirectoryStat.args = [{ name: 'dir', required: true, description: 'directory' }]
@@ -59,7 +54,7 @@ DirectoryStat.flags = {
   }),
   output: flags.string({
     char: 'o',
-    description: 'name of the output file',
+    description: 'path to the output file',
     default: '.dirstat'
   }),
   version: flags.version({ char: 'v' }),
