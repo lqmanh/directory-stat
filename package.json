@@ -21,7 +21,7 @@
     "fast-glob": "^3.0.4"
   },
   "optionalDependencies": {
-    "@oclif/plugin-warn-if-update-available": "^1.7.0"
+    "@oclif/plugin-warn-if-update-available": "^2.0.17"
   },
   "devDependencies": {
     "eslint": "^7.4.0"
